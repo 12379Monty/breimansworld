@@ -266,11 +266,11 @@ consideration and may call for some innovation and ingenuity.
 
 ### The practice {-}
 
-Leo Breiman firmly believed that statistics is about solving problems.  We would
+Leo Breiman firmly believed that **statistics is about solving problems**.  We would
 not be doing justice to his legacy if we just went through his notes which describe
 some helpful theory whose only relevance in Professor Breiman's mind was to provide
-tools to solve problems.  With that in mind **the essential content** of this manuscript
-will not be the notes on theory, but **illustration of applied statistics at work** 
+tools to solve problems.  With that in mind the essential content of this manuscript
+will not be the notes on theory, but **the illustration of applied statistics at work** 
 in solving problems.  The task is therefore to include numerous case studies
 illustrating good data analysis practice.  
 
@@ -279,12 +279,15 @@ One thing is certain: we have to avoid the usual format of attaching
 examples to techniques as they are introduced.  The usual textbook 
 format which ties trivial, neat examples to technique 
 as each new technique is introduced 
-leads the reader to make unduly strong association between problem and technique,
+leads to an unduly strong association between problem and technique,
 and to the belief that matching problems to textbook technique is the
 crunch of statistical analysis^[
 This is not quite the nail-finder's syndrome, but a close relative -
 the tool-finder syndrome.  The latter retains the tendency to 
 work around the essential task of becoming intimately familiar
 with the substance of the problem before trying to solve it.].
+What we will endeaver to realize is to fill this document
+with detailed reports of data design, collection and analyses which
+are inspiring and can be shown to have the attibutes of dependability and durability.
 
 --- Stat Student
