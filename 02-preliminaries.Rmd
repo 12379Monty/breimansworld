@@ -29,8 +29,9 @@ According to George E. P. Box (1980)^[@Box:1980aa].
 
 All models are based on a set of assumptions.  The conclusions one can draw
 from the results sometimes depend as much on the veracity of the
-assumptions as on the data itself.  In many cases, of the assumptions
-cannot verified to be approximately true, the data should not be analyzed at all.
+assumptions as on the data itself.  In many cases, if the assumptions
+cannot be verified to be approximately correct,
+the data should not be analyzed at all.
 This is a crucial topic which is not discusses in Breiman's notes.
 It is also rarely treated to any depths in textbooks which introduce students to
 data modeling.  For one thing the topic is vast and deserves its own
@@ -40,14 +41,33 @@ term Exploratory data analysis.
 
 Originally developed by John Tukey [@Tukey:1972aa] and [@Tukey:1977aa],
 exploratory data analysis  refers to a set of tools and techniques which enable us 
-learn the basic features of a dataset and detect anomalies and unexpected features
-before proceeding to the more formal probabilistic modeling.  Many of the 
+to learn and interpret both the salient and the innocuous  features of a dataset 
+and detect anomalies or unexpected features,
+before proceeding to the  formal probabilistic modeling.  Many of the 
 original techniques remain in use today.   The omni-present boxplot, for example,
 was first suggested by John Tukey around that time^[
 An interesting fact is that the idea of the boxplot first came
 to Tukey while he was interested in the patterns of residuals among many
-batches of points.  I think that it's fair to say that boplots now are used 
-to study trend in the bodey of the data].
+batches of points.  I think that it's fair to say that boxplots now are used 
+almost universality to study trend in the body of the data]^[
+Exploratory data analysis does not get the amount of attention it deserves
+and requires to ensure that the analysis to follow makes sense.  Why is that?
+Any problem that is systematic has to be traced back to the system - the set of
+rules and priorities that regulate the game.  To the analyst, finding a problem
+and fixing it means everything.  That is why they are so diligent.  That
+is why they carry out all of the thankless tasks that nobody else is aware of.
+What does that mean to the business driver?  Nothing, for most.  You found a
+problem and fixed it - what do I care, as long as I get my result by Monday.
+Professor Breiman blames statistics departments for the sloppiness in statistical
+practice.  I believe employers should carry their share of the blame.  If
+statisticians in the industry were rewarded for and allocated resources to 
+providing inspiring, dependable and durable results, they would. If instead
+they are rewarded for functioning as a turnkey operation which provides trivial
+and superficial analysis results which enables plans to proceed as planned,
+or to architect an edifice of an analysis that is so complex nobody can
+understand, let alone test the underlying assumptions, that is exactly what
+they will keep doing.].
+
 
 
 ```{r chuck-guarantee, fig.align="center", out.height="90%", out.width = "90%", fig.cap="The Charles Barkley Guarantee is only for comic relief - if you skip EDA, your doom is inevitable", echo=F, eval=F}
