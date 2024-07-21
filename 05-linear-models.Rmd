@@ -1,0 +1,27 @@
+# Linear Models {#linear-models}
+
+## Regression  
+
+## Analysis of Variance  
+
+
+<!--
+
+> We were together learning how to use the analysis of variance, 
+> and perhaps it is worth while stating an impression that I have 
+> formed-that the analysis of variance, which may perhaps 
+> be called a statistical method, because
+> that term is a very ambiguous one — is not a mathematical theorem, but
+> rather a convenient method of arranging the arithmetic. 
+> Just as in arithmetical textbooks — if we can recall their contents — 
+> we were given rules for arranging how to find the greatest common measure, 
+> and how to work out a sum in practice, and were drilled in the 
+> arrangement and order in which we were to put the figures down, 
+> so with the analysis of variance;
+> **its one claim to attention lies in its convenience.**
+>
+> The Future of Data Analysis
+>
+>`r tufte::quote_footer('--- John Tukey')`
+
+--> 

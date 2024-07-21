@@ -1,0 +1,171 @@
+# Preliminaries {#preliminaries}
+
+Before we get into Brieman's world we should mention some
+important elements of data analysis  which are not part of the class notes:
+Exploratory Data Analysis  and Data Simulation.
+
+
+## Exploratory Data Analysis {#eda}
+
+<!--
+> Measure 7 times, cut once.  
+>
+>`r tufte::quote_footer('--- Russian saying')`
+-->
+
+
+<!--
+> Verify all assumptions.
+> Look before, and after, you transform.
+> When you transform, verify!
+>
+>`r tufte::quote_footer('--- Uncommon Sense')`
+-->
+
+According to George E. P. Box (1980)^[@Box:1980aa].  
+
+> No statistical model can safely be assumed adequate.
+>
+
+All models are based on a set of assumptions.  The conclusions one can draw
+from the results sometimes depend as much on the veracity of the
+assumptions as on the data itself.  In many cases, of the assumptions
+cannot verified to be approximately true, the data should not be analyzed at all.
+This is a crucial topic which is not discusses in Breiman's notes.
+It is also rarely treated to any depths in textbooks which introduce students to
+data modeling.  For one thing the topic is vast and deserves its own
+course.  Another reason is that it is very context specific.  There
+are tools which can be generally applicable and fall under the umbrella
+term Exploratory data analysis.
+
+Originally developed by John Tukey [@Tukey:1972aa] and [@Tukey:1977aa],
+exploratory data analysis  refers to a set of tools and techniques which enable us 
+learn the basic features of a dataset and detect anomalies and unexpected features
+before proceeding to the more formal probabilistic modeling.  Many of the 
+original techniques remain in use today.   The omni-present boxplot, for example,
+was first suggested by John Tukey around that time^[
+An interesting fact is that the idea of the boxplot first came
+to Tukey while he was interested in the patterns of residuals among many
+batches of points.  I think that it's fair to say that boplots now are used 
+to study trend in the bodey of the data].
+
+
+```{r chuck-guarantee, fig.align="center", out.height="90%", out.width = "90%", fig.cap="The Charles Barkley Guarantee is only for comic relief - if you skip EDA, your doom is inevitable", echo=F, eval=F}
+
+knitr::include_graphics("images/Charles_Barkley_Guarantees.gif")
+
+```
+
+EDA is greatly facilitated by readily available software as well as the modern
+hardware technologies which can  quickly  render beautiful plots.  This is
+both great and not so great.  It is great when it enables practitioners
+to do more EDA and let their minds wander unencumbered by technical
+challenges.  It is not so great when the software does the thinking for you
+while crossing the line between EDA and SDA (statistical ...), when the
+software automatically puts confidence intervals on plots for example^[
+S, the statistical data analysis package on which R is based, was great
+at not doing the thinking for the user.  Very often, all of the elements
+needed for many specific analyses are stored in data objects and the user 
+has to extract these elements to conduct the more sophisticated analyses.
+These extractions sometimes require some expert knowledge, or  at least you 
+have to know what you're doing.  Some of the most modern and most popular
+extensions of R do most of the thinking and analysis for the user.
+Someone can now ggplot their way into a statistical conference without any
+idea what randomness is about.]. 
+
+Trevor Hastie, in a talk which is further explored below
+([Trevor Hastie SLBD Talk (Bristol 2018)](https://www.youtube.com/watch?v=0EWJZIC4JxA)
+and accompanying 
+[SLBD Slides](https://bristol.ac.uk/media-library/sites/jean-golding-institute/documents/Statistical%20learning%20with%20big%20data.compressed.pdf)),
+notes that with the advent of big data, data visualization has 
+become challenging again and some may be tempted skip that essential
+step of the data analysis process.  Professor Hastie remarks that
+the problems one runs into when analyzing data without
+familiarising oneself with the salient features of the data may be
+harder to detect but they have not disappeared.
+
+
+We will not fill this chapter with descriptions of EDA summaries and plots.
+The methods are varied and many 
+(See [@Tukey:1977aa; @Cleveland:1993aa; @Gelman:2006aa]),
+and their utility intimately dependent on the context.
+EDA methods will instead be introduced as
+they come up in the course of the analyses described below.
+
+<!-- 
+I do want to say a bit about `the boxplot` as it is so widely used, here and
+elsewhere.
+
+## The boxplot 
+
+The invention of the box-plot as we know it today is widely attributed to
+John Tukey, but Nicholas Cox points out that  the idea of
+comparing distributions by plotting quantiles  of distributions side
+by side predates Tukey's work by some 40 years (Cox (2009) [@Cox:2009aa])
+and  Crowe (1933) [@Crowe:1933aa]).
+
+Here is an inrtersting bit about the box-plot.  My PhD advisor,
+David Brillinger, who did his PhD under Tukey's supervison, once
+remarked that:
+
+> John Tukey never indented the box-plot as a way to 
+> compare the shape or locations of distributions;
+> John's focus at the time was the occurrence of outliers.
+
+
+-->
+
+
+## Simulated Data Experimentation
+
+> when you simulate fake data, you kinda have to have some sense 
+> of what’s going on. You’re starting from a position of understanding.
+>
+>`r tufte::quote_footer('--- Andrew Gelman')`
+
+
+Simulations to evaluate assumptions made about the data structure,
+and for verifying statistical procedures and properties of model fits
+is another essential part of the data analysis process which didn't make it 
+into Professor Breiman's notes.
+
+<!--
+
+[Andrew Gelman](https://stat.columbia.edu/~gelman/) is nuts about
+fake-data simulation and can't stop blogging about it:
+
+* [Yes, I really really really like fake-data simulation, and I can’t stop talking about it.](https://statmodeling.stat.columbia.edu/2019/03/23/yes-i-really-really-really-like-fake-data-simulation-and-i-cant-stop-talking-about-it/) 
+* [Simulated-data experimentation: Why does it work so well?](https://statmodeling.stat.columbia.edu/2021/02/19/fake-data-simulation-why-does-it-work-so-well/) 
+* [Why I like hypothesis testing (it’s another way to say “fake-data simulation”)](https://statmodeling.stat.columbia.edu/2023/12/10/why-i-like-hypothesis-testing-its-another-way-to-say-fake-data-simulation/) 
+* [Simulation to understand measurement error in regression](https://statmodeling.substack.com/p/simulation-to-understand-measurement) - to appear
+
+* [the power of fake data simulations](https://michaeldewittjr.com/programming/2018-09-24-the-power-of-fake-data-simulations/) - this blog, with code, is
+a replication of what Andrew Gelman has already posted -
+[Multilevel data collection and analysis for weight training (with R code)](https://statmodeling.stat.columbia.edu/2018/09/22/38708/).  
+
+-->
+
+Simulating data appropriately is a non-trivial exercise.
+The simulated data must conform to the properties of the
+real it is meant to meant mimic; not necessarily the properties
+of the data model assumed by the analysis method.
+In most applications of software engineering, there is no randomness:
+to each fixed input a specific
+output is expected and when there are no abends or errors
+of any kind and the expected output is obtained,  the task is basically complete.
+In statistical analysis and data simulations, once the code works the task
+has only begun.  Once the simulation code "works", we need to simulate
+enough fake data to see if it really works - does it capture all of the
+salient **features of the real data**; we will look for ways this
+can be achieved.   
+
+In addition to his work on data simulations, Andrew Gelman has also
+published on the topic of `multilevel data` which may be
+analogous to the data structure of plated samples coming off the pipeline.
+See Gilman and Hill (2006) [@Gelman:2006aa], which also has a chapter
+on simulated data [@Gelman:2006bb] and software to boot
+(See [Data Analysis Using Regression and Multilevel/Hierarchical Model](https://stat.columbia.edu/~gelman/arm/)).
+Other works of interest are Gelman, Hill and Vehtari (2020) [@Gelman:2020aa] and
+not yet published "Advanced Regression and Multilevel Models".
+
+

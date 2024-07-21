@@ -1,0 +1,73 @@
+# Design of Experiments {#doe }
+
+> Statistical procedure and experimental design are 
+> only two different aspects of the same whole, 
+> and that whole is the logical requirements of 
+> the complete process of adding to natural knowledge 
+> by experimentation.
+>
+> `r tufte::quote_footer('---  Ronald Fisher')`
+
+That's a mouthful but it makes an important point which
+is often missed - in order to derive maximum benefit from data,
+the experimental process must be treated as a whole.
+When the processes of framing the question, selecting 
+the data to be generated and specifying the analyses to be
+conducted are not fully integrated a situation is created
+in which inefficiencies and errors are bound to flourish.
+
+The steps which must be taken to produce a useful
+experimental design are simple to articulate, but difficult
+to actualize:
+
+1. Start with a full, complete and accurate understanding of 
+*the question*.
+
+<p><p/>
+2. Identify the kind of data needed to answer the question.
+   - For statistical experiments involving data which come with
+an element of randomness, when repeated measurements are not
+guaranteed to produce identical results, a deep understanding
+of sources of variability is required in order to identify the
+appropriate sources of data.
+
+<p><p/>
+3. Specify how the data are to be generated and analyzed. 
+
+How the data are to be generated, or collected, and analyzed are so
+intimately related that the two processes should be considered one step.
+In this day and age of incredible data savvy, or so we all want
+to believe, it is surprising to see how often statisticians
+are presented with a data collection proposal and asked
+to produce N.  Even more surprising to me is how often
+statisticians are able to produce an answered almost immediately.  
+
+Once the proper data have been identified, and the appropriate way
+to collect them have been specified, the question of how many
+samples are needed should already have been answer or would typically 
+be a trivial parameter to pin down in relation to the immense burden 
+required to properly specify all of the antecedental parameters.
+
+Many good books provide advice on 3. how to generate and analyze
+data from experiments.  In most, if not all, textbooks, names are 
+given to sets of data and analyses which more or less have 
+common structure - factorial, randomized blocks,
+incomplete Greco-Latin squares, etc.  and we are left to believe
+that the crunch of the problem is to find the name of the method
+which fits our data.  That's not problem.
+
+The crunch of the problem is figuring out 1 and 2 and no book can
+properly address the challenges as these will be intimately 
+tied to the specifics of our context.  So we will proceed
+sans le textbook and try to answer these questions by
+gaining an intimate familiarity with the question at hand,
+a la Leo Breiman.
+
+
+---
+
+Will lay out broad principals here - bias, variance, independence -
+and include Leo Breiman's Stat 215A thoughts on DOE.
+
+
+

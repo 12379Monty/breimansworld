@@ -1,0 +1,215 @@
+# What is statistics? {#what-is-statistics}
+
+> Without data, you're just another person with an opinion.
+>
+> `r tufte::quote_footer('---  W. Edwards Deming')`
+
+
+## Probability - inverse statistics
+
+> The worst thing in statistics had to be the p-value.
+> Then came the q-value.
+>
+>`r tufte::quote_footer('--- Unknown Origin')`
+
+When statistics first emerged it was known as
+inverse probability.  Michael I. Jordan traces this
+derivation back the Laplace in the 18th century:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AQUAPiHahVY&t=92s" title="What is Statistics? (Michael I. Jordan) | AI Podcast Clips" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<br/>
+
+Before going on to define statistics, it might be helpful to think about
+what it is not - probability.  
+
+((
+* Overview of *probability* or survey of the problems probability 
+deals wuth.
+
+* Perhaps just enough probability to discuss p-values.
+))
+
+<br/>
+
+### p-values
+
+The p-value may deserve the lot of being the worst concept in statiistics,
+but only because it is so rarely used properly.<!--  If p-values were only quoted
+in the proper context it would suffer less abuse because only for one
+they would be much less murmur about them as they require a very specific
+setup in order to deserve being  ... -->
+p-values are probabilities and keeping that notion clear is critically
+important if we want to avoid the many pitfalls associated with p-values,
+of which there are many.
+
+* Include a scroll of references documenting problems which arise when p-values 
+are used uncritically, the association with publication requirements and 
+the effect this has had on science.
+
+If we keep in mind what p-values are, their mis-use can almost be
+completely eradicated, at least locally.
+
+A p-value is a probability which comes from a probability distribution.
+What is needed for a p-value to have meaning:
+
+* replication or repetition with an element of randomness.   
+
+* an understanding of the underlying mechanism giving rise to the randomness -
+a model for the probability distribution or probability law which accurately
+captures the randomness in the process underlying the outcome(s) on which the 
+p-values are based.
+
+Before quoting a p-value, ask yourself: 
+
+* what is the event?
+* where is the randomness coming from?
+* what is the data generation model and the ensuing probability model
+assumed by the p-value inference?
+
+Or ask yoursel just one question:
+
+* can I make a bet in favor of, or against the outcome which the p-value
+refers to?   How would the outomce of this wager be resolved?
+
+If the answer to these questions don't easily roll off your tongue,
+it is probably best not to quote a p-value and stick to
+descriptive statistics: mean, sd, standard units.
+
+Situations when quoting p-values is clearly  inappropriate include:  
+
+* One-offs which will never or cannot be replicated.
+   - a summary statistic refers to a population has no associated p-value
+* The specifics of how the data were collected in unknown.
+* Statistics encountered during the course of exploratory
+data analysis.
+* When examining features of study groups which were populated
+by random assignment.  
+   - participants from a known population are assigned at random to two groups;
+what test is implied by a p-value attached to the difference in the proportion of females
+beteen the two groups?
+
+The misuses of p-values can be greatly reduced if we only quote them in the
+context of an analysis which follows a statistical analysis plan in which
+a set of hypotheses are clearly described.
+
+<br/>
+
+## Statistics - inverse probability
+
+### The data modeling approach 
+
+George Box famously said [@Box:1976aa]:
+
+> all models are wrong,
+> but some are useful
+
+A far better quotation from the same paper by Box is, 
+
+> Since all models are wrong the scientist 
+> must be alert to what is importantly wrong.
+> It is inappropriate to be concerned about mice 
+> when there are tigers around^[slight modification of quote]
+>
+>`r tufte::quote_footer('--- Phil Stark (2022) [@Stark:2022aa]')`
+
+> to pull a rabbit from a hat, 
+> a rabbit must first be placed in the hat
+>
+>`r tufte::quote_footer('--- David A. Freedman')`
+
+
+
+
+
+### The predictive approach  {-}
+
+> the proof of the pudding is in the eating
+>
+> `r tufte::quote_footer('---  Proverb dating back to the 14th century [wkp](https://en.wiktionary.org/wiki/the_proof_of_the_pudding_is_in_the_eating)')`
+
+What Professor Breiman referred to as `the algorithmic approach`
+was later called `the predictive modeling approach by 
+David Donoho [@Donoho:2017aa].   We will adopt that terminology
+as well.
+
+... describe predictive modeling ...
+
+
+<br/>
+
+###  The predictive data modeling approach {-}
+
+
+#### High Dimensional Data  {-} 
+
+
+Some modern data problems which involve the analysis of large datasets
+can only be solved by a combination of both data and predictive modeling
+approaches. Omics -  genomics, transcriptomics, proteomics, 
+metabolomics and other omics - refer to high-throughput
+experimental technologies which produce measurements related to the
+molecular content of cells.  Genomic platforms, for example,
+record measurements indicating the abundance of 
+[RNA transcripts](# "the RNA strand that is produced when a gene is transcribed")
+present in the cells of processed samples.  Different
+platforms use different technologies to obtain the measurements on
+transcript abundance, and all platforms require sophisticated pipelines
+to process the platform's hardware readout and produce the 
+transcript abundance measurements required for downstream analysis.
+These in turn require further processing
+in order to provide data in a form that can be used to address the biological
+questions of interest, which genes are differentially expressed between two 
+groups of samples for example.  
+
+First we discuss data analyses which are carried out at the so-called
+down-stream end of the analysis pipeline, following earlier analyses,
+sometimes called pre-processing, which transform the machine read-outs
+into analysis units - vectors of gene expression and protein concentrations,
+for example.  
+ 
+Hastie and colleagues coined the term `Statistical Learning` to refer to^[
+this material taken from 
+[Trevor Hastie SLBD Talk (Bristol 2018)](https://www.youtube.com/watch?v=0EWJZIC4JxA)
+and accompanying
+[SLBD Slides](https://bristol.ac.uk/media-library/sites/jean-golding-institute/documents/Statistical%20learning%20with%20big%20data.compressed.pdf)]:
+
+> a branch of applied statistics that
+> emerged in response to machine learning,
+> emphasizing statistical models and assessment of
+> uncertainty.  
+
+The primary contrast with `Machine Learning`, which is a field focused on
+constructing algorithms that can learn from data, is the incorporation of 
+assessment of uncertainty in the evaluation of a predictor's performance^[
+I can't believe that machine learners have no interest in uncertainty.
+In this story the contrast must be between an assessment of uncertainty
+based entirely on empirical results, as used by the  machine learning community,a
+and an assessment of uncertainty which incorporates some theoretical results
+in addition to empirical findings.  I think that this distinction is rather slim.
+Another distinction that could be made is  the we can assume that
+the statistical learner, by virtue of their desire to incorporate 
+theoretical results in the assessment of uncertainty, will have a
+preference for simpler models, which may translate into
+a stronger sense of generalizability and extendability.].
+The statistical learning approach is prescribed  and illustrated in
+[@hastie:2009aa; @Hastie:2015aa;  @Taylor:2015aa; @James:2023aa].
+
+
+##### Examples:  microarray data  {-}
+
+#### Applied Statistics at Work
+
+Another situation which calls for a hybrid between
+the data modeling approach and the predictive modeling
+approach to statistics is the work place where data
+are collected and analyzed for the sole purpose of 
+making decisions and taking actions.  In this
+context it could be argued that even when data modeling
+is a useful and sometimes necessary port of the analysis,
+the value of the modeling must be assessed in view
+of some predictions predicated on the analysis results.  
+Interpretation of fitted models is secondary to their 
+value in making useful predictions.
+
+

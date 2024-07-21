@@ -1,0 +1,10 @@
+# Generalized Linear Models {#glm }
+
+
+## Binary Data and Logictic Models 
+
+## Count Data and Log-Linear Models 
+
+
+
+

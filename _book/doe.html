@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Design of Experiments | Where’s the Randomness   Adapted from Leo Breiman’s Applied Statitics   Class Notes of 1991</title>
+  <meta name="description" content="<p>Lecture notes in applied statistics from a course
+taught by Leo Breiman at the UC, Berkeley statistics
+department in 1991.</p>" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Design of Experiments | Where’s the Randomness   Adapted from Leo Breiman’s Applied Statitics   Class Notes of 1991" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>Lecture notes in applied statistics from a course
+taught by Leo Breiman at the UC, Berkeley statistics
+department in 1991.</p>" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Design of Experiments | Where’s the Randomness   Adapted from Leo Breiman’s Applied Statitics   Class Notes of 1991" />
+  
+  <meta name="twitter:description" content="<p>Lecture notes in applied statistics from a course
+taught by Leo Breiman at the UC, Berkeley statistics
+department in 1991.</p>" />
+  
+
+<meta name="author" content="Stat Student" />
+
+
+<meta name="date" content="2024-07-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="what-is-statistics.html"/>
+<link rel="next" href="linear-models.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Lecture Notes in Applied Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Proloque</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#nail-finders-the-edifice-complex-and-oz"><i class="fa fa-check"></i><b>1.1</b> Nail Finders, The Edifice Complex and Oz</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#wheres-the-randomness"><i class="fa fa-check"></i><b>1.2</b> Where’s the randomness?</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#what-next"><i class="fa fa-check"></i><b>1.3</b> What next?</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#the-theory"><i class="fa fa-check"></i>The theory</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#the-practice"><i class="fa fa-check"></i>The practice</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="preliminaries.html"><a href="preliminaries.html"><i class="fa fa-check"></i><b>2</b> Preliminaries</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="preliminaries.html"><a href="preliminaries.html#eda"><i class="fa fa-check"></i><b>2.1</b> Exploratory Data Analysis</a></li>
+<li class="chapter" data-level="2.2" data-path="preliminaries.html"><a href="preliminaries.html#simulated-data-experimentation"><i class="fa fa-check"></i><b>2.2</b> Simulated Data Experimentation</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="what-is-statistics.html"><a href="what-is-statistics.html"><i class="fa fa-check"></i><b>3</b> What is statistics?</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="what-is-statistics.html"><a href="what-is-statistics.html#probability---inverse-statistics"><i class="fa fa-check"></i><b>3.1</b> Probability - inverse statistics</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="what-is-statistics.html"><a href="what-is-statistics.html#p-values"><i class="fa fa-check"></i><b>3.1.1</b> p-values</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="what-is-statistics.html"><a href="what-is-statistics.html#statistics---inverse-probability"><i class="fa fa-check"></i><b>3.2</b> Statistics - inverse probability</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="what-is-statistics.html"><a href="what-is-statistics.html#the-data-modeling-approach"><i class="fa fa-check"></i><b>3.2.1</b> The data modeling approach</a></li>
+<li class="chapter" data-level="" data-path="what-is-statistics.html"><a href="what-is-statistics.html#the-predictive-approach"><i class="fa fa-check"></i>The predictive approach</a></li>
+<li class="chapter" data-level="" data-path="what-is-statistics.html"><a href="what-is-statistics.html#the-predictive-data-modeling-approach"><i class="fa fa-check"></i>The predictive data modeling approach</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="doe.html"><a href="doe.html"><i class="fa fa-check"></i><b>4</b> Design of Experiments</a></li>
+<li class="chapter" data-level="5" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>5</b> Linear Models</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="linear-models.html"><a href="linear-models.html#regression"><i class="fa fa-check"></i><b>5.1</b> Regression</a></li>
+<li class="chapter" data-level="5.2" data-path="linear-models.html"><a href="linear-models.html#analysis-of-variance"><i class="fa fa-check"></i><b>5.2</b> Analysis of Variance</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="glm.html"><a href="glm.html"><i class="fa fa-check"></i><b>6</b> Generalized Linear Models</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="glm.html"><a href="glm.html#binary-data-and-logictic-models"><i class="fa fa-check"></i><b>6.1</b> Binary Data and Logictic Models</a></li>
+<li class="chapter" data-level="6.2" data-path="glm.html"><a href="glm.html#count-data-and-log-linear-models"><i class="fa fa-check"></i><b>6.2</b> Count Data and Log-Linear Models</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="predictive-analysis.html"><a href="predictive-analysis.html"><i class="fa fa-check"></i><b>7</b> Predictive Analysis</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="predictive-analysis.html"><a href="predictive-analysis.html#traditional-classification-analysis"><i class="fa fa-check"></i><b>7.1</b> Traditional Classification Analysis</a></li>
+<li class="chapter" data-level="7.2" data-path="predictive-analysis.html"><a href="predictive-analysis.html#modern-predictive-modeling"><i class="fa fa-check"></i><b>7.2</b> Modern Predictive Modeling</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="predictive-analysis.html"><a href="predictive-analysis.html#cart---the-birth-of-a-methodology"><i class="fa fa-check"></i><b>7.2.1</b> CART - The Birth of a Methodology</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>8</b> <span style="color:blue">Appendix</span></a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="appendix.html"><a href="appendix.html#breiman-versus-cox"><i class="fa fa-check"></i><b>8.1</b> <span style="color:blue">Breiman versus Cox </span></a></li>
+<li class="chapter" data-level="8.2" data-path="appendix.html"><a href="appendix.html#freedman-on-john-snow-shoe-leather-and-lines-of-evidence"><i class="fa fa-check"></i><b>8.2</b> Freedman on John Snow, Shoe Leather and Lines of Evidence</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https:url" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Where’s the Randomness <br> Adapted from Leo Breiman’s Applied Statitics <br> Class Notes of 1991</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="doe" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Design of Experiments<a href="doe.html#doe" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<blockquote>
+<p>Statistical procedure and experimental design are
+only two different aspects of the same whole,
+and that whole is the logical requirements of
+the complete process of adding to natural knowledge
+by experimentation.</p>
+<footer>
+— Ronald Fisher
+</footer>
+</blockquote>
+<p>That’s a mouthful but it makes an important point which
+is often missed - in order to derive maximum benefit from data,
+the experimental process must be treated as a whole.
+When the processes of framing the question, selecting
+the data to be generated and specifying the analyses to be
+conducted are not fully integrated a situation is created
+in which inefficiencies and errors are bound to flourish.</p>
+<p>The steps which must be taken to produce a useful
+experimental design are simple to articulate, but difficult
+to actualize:</p>
+<ol style="list-style-type: decimal">
+<li>Start with a full, complete and accurate understanding of
+<em>the question</em>.</li>
+</ol>
+<p>
+<p/>
+<ol start="2" style="list-style-type: decimal">
+<li>Identify the kind of data needed to answer the question.
+<ul>
+<li>For statistical experiments involving data which come with
+an element of randomness, when repeated measurements are not
+guaranteed to produce identical results, a deep understanding
+of sources of variability is required in order to identify the
+appropriate sources of data.</li>
+</ul></li>
+</ol>
+<p>
+<p/>
+<ol start="3" style="list-style-type: decimal">
+<li>Specify how the data are to be generated and analyzed.</li>
+</ol>
+<p>How the data are to be generated, or collected, and analyzed are so
+intimately related that the two processes should be considered one step.
+In this day and age of incredible data savvy, or so we all want
+to believe, it is surprising to see how often statisticians
+are presented with a data collection proposal and asked
+to produce N. Even more surprising to me is how often
+statisticians are able to produce an answered almost immediately.</p>
+<p>Once the proper data have been identified, and the appropriate way
+to collect them have been specified, the question of how many
+samples are needed should already have been answer or would typically
+be a trivial parameter to pin down in relation to the immense burden
+required to properly specify all of the antecedental parameters.</p>
+<p>Many good books provide advice on 3. how to generate and analyze
+data from experiments. In most, if not all, textbooks, names are
+given to sets of data and analyses which more or less have
+common structure - factorial, randomized blocks,
+incomplete Greco-Latin squares, etc. and we are left to believe
+that the crunch of the problem is to find the name of the method
+which fits our data. That’s not problem.</p>
+<p>The crunch of the problem is figuring out 1 and 2 and no book can
+properly address the challenges as these will be intimately
+tied to the specifics of our context. So we will proceed
+sans le textbook and try to answer these questions by
+gaining an intimate familiarity with the question at hand,
+a la Leo Breiman.</p>
+<hr />
+<p>Will lay out broad principals here - bias, variance, independence -
+and include Leo Breiman’s Stat 215A thoughts on DOE.</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="what-is-statistics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="linear-models.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

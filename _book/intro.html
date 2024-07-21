@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Introduction | Where’s the Randomness   Notes Adapted from Leo Breiman’s   Applied Statitics Class of 1991</title>
+  <meta name="description" content="<p>Lecture notes in applied statistics from a course
+taught by Leo Breiman at the UC, Berkeley statistics
+department in 1991.</p>" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Introduction | Where’s the Randomness   Notes Adapted from Leo Breiman’s   Applied Statitics Class of 1991" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>Lecture notes in applied statistics from a course
+taught by Leo Breiman at the UC, Berkeley statistics
+department in 1991.</p>" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Introduction | Where’s the Randomness   Notes Adapted from Leo Breiman’s   Applied Statitics Class of 1991" />
+  
+  <meta name="twitter:description" content="<p>Lecture notes in applied statistics from a course
+taught by Leo Breiman at the UC, Berkeley statistics
+department in 1991.</p>" />
+  
+
+<meta name="author" content="Stat Student" />
+
+
+<meta name="date" content="2024-07-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="preliminaries.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Lecture Notes in Applied Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> The HTML output format for this example is bookdown::gitbook,</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#nail-finders-the-edifice-complex-and-oz"><i class="fa fa-check"></i><b>2.1</b> Nail Finders, The Edifice Complex and Oz</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#wheres-the-randomness"><i class="fa fa-check"></i><b>2.2</b> Where’s the randomness?</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#what-next"><i class="fa fa-check"></i><b>2.3</b> What next?</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#the-theory"><i class="fa fa-check"></i>The theory</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#the-practice"><i class="fa fa-check"></i>The practice</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="preliminaries.html"><a href="preliminaries.html"><i class="fa fa-check"></i><b>3</b> Preliminaries</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="preliminaries.html"><a href="preliminaries.html#eda"><i class="fa fa-check"></i><b>3.1</b> Exploratory Data Analysis</a></li>
+<li class="chapter" data-level="3.2" data-path="preliminaries.html"><a href="preliminaries.html#the-boxplot"><i class="fa fa-check"></i><b>3.2</b> The boxplot</a></li>
+<li class="chapter" data-level="3.3" data-path="preliminaries.html"><a href="preliminaries.html#simulated-data-experimentation"><i class="fa fa-check"></i><b>3.3</b> Simulated Data Experimentation</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="what-is-statistics.html"><a href="what-is-statistics.html"><i class="fa fa-check"></i><b>4</b> What is statistics?</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="what-is-statistics.html"><a href="what-is-statistics.html#probability---inverse-statistics"><i class="fa fa-check"></i><b>4.1</b> Probability - inverse statistics</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="what-is-statistics.html"><a href="what-is-statistics.html#p-values"><i class="fa fa-check"></i><b>4.1.1</b> p-values</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="what-is-statistics.html"><a href="what-is-statistics.html#statistics---inverse-probability"><i class="fa fa-check"></i><b>4.2</b> Statistics - inverse probability</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="what-is-statistics.html"><a href="what-is-statistics.html#the-data-modeling-approach"><i class="fa fa-check"></i><b>4.2.1</b> The data modeling approach</a></li>
+<li class="chapter" data-level="" data-path="what-is-statistics.html"><a href="what-is-statistics.html#the-predictive-approach"><i class="fa fa-check"></i>The predictive approach</a></li>
+<li class="chapter" data-level="" data-path="what-is-statistics.html"><a href="what-is-statistics.html#the-predictive-data-modeling-approach"><i class="fa fa-check"></i>The predictive data modeling approach</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="doe.html"><a href="doe.html"><i class="fa fa-check"></i><b>5</b> Design of Experiments</a></li>
+<li class="chapter" data-level="6" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>6</b> Linear Models</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="linear-models.html"><a href="linear-models.html#regression"><i class="fa fa-check"></i><b>6.1</b> Regression</a></li>
+<li class="chapter" data-level="6.2" data-path="linear-models.html"><a href="linear-models.html#analysis-of-variance"><i class="fa fa-check"></i><b>6.2</b> Analysis of Variance</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="glm.html"><a href="glm.html"><i class="fa fa-check"></i><b>7</b> Generalized Linear Models</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="glm.html"><a href="glm.html#binary-data-and-logictic-models"><i class="fa fa-check"></i><b>7.1</b> Binary Data and Logictic Models</a></li>
+<li class="chapter" data-level="7.2" data-path="glm.html"><a href="glm.html#count-data-and-log-linear-models"><i class="fa fa-check"></i><b>7.2</b> Count Data and Log-Linear Models</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="predictive-analysis.html"><a href="predictive-analysis.html"><i class="fa fa-check"></i><b>8</b> Predictive Analysis</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="predictive-analysis.html"><a href="predictive-analysis.html#traditional-classification-analysis"><i class="fa fa-check"></i><b>8.1</b> Traditional Classification Analysis</a></li>
+<li class="chapter" data-level="8.2" data-path="predictive-analysis.html"><a href="predictive-analysis.html#modern-predictive-modeling"><i class="fa fa-check"></i><b>8.2</b> Modern Predictive Modeling</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="predictive-analysis.html"><a href="predictive-analysis.html#cart---the-birth-of-a-methodology"><i class="fa fa-check"></i><b>8.2.1</b> CART - The Birth of a Methodology</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>9</b> <span style="color:blue">Appendix</span></a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="appendix.html"><a href="appendix.html#breiman-versus-cox"><i class="fa fa-check"></i><b>9.1</b> <span style="color:blue">Breiman versus Cox </span></a></li>
+<li class="chapter" data-level="9.2" data-path="appendix.html"><a href="appendix.html#freedman-on-john-snow-shoe-leather-and-lines-of-evidence"><i class="fa fa-check"></i><b>9.2</b> Freedman on John Snow, Shoe Leather and Lines of Evidence</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https:url" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Where’s the Randomness <br> Notes Adapted from Leo Breiman’s <br> Applied Statitics Class of 1991</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intro" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Introduction<a href="intro.html#intro" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<blockquote>
+<p>We start with a certain problem, and I find myself drawing
+pictures of the problem before we ever get abstract.
+You’re trying to make the problem concrete before
+you translate it into the abstract.</p>
+<footer>
+— in A Conversation with Leo Breiman <span class="citation">[<a href="#ref-Olshen:2001aa" role="doc-biblioref">1</a>]</span>
+</footer>
+</blockquote>
+<p>The inspiration for this manual comes from
+lecture notes in applied statistics from a course
+taught at the UC, Berkeley statistics department in 1991,
+and from the author of these notes, Professor Leo Breiman.</p>
+<p>In 2001, in an article titled <strong>Statistical Modeling: The Two Cultures</strong>
+<span class="citation">[<a href="#ref-Breiman:2001aa" role="doc-biblioref">2</a>]</span>, Leo Breiman called out the statistical community for
+being ill-equipped to tackle the data analytical challenges
+of the day. Some 14 years later
+the field of statistics appeared to finally be shaken out of its lull
+as many were asking where the field of statistics was going, or not going rather.
+In <strong>50 Years of Data Science</strong> <span class="citation">[<a href="#ref-Donoho:2017aa" role="doc-biblioref">3</a>]</span>,
+Breiman’s urging academic statistics to expand its boundaries
+beyond the classical domain of theoretical statistics is recognized
+along with similar callings coming from contemporaries
+John Chambers <span class="citation">[<a href="#ref-Chambers1993GreaterOL" role="doc-biblioref">4</a>]</span>,
+Jeff Wu (slides <a href="http://www2.isye.gatech.edu/~jeffwu/presentations/datascience.pdf">here</a>),
+and Bill Cleveland <span class="citation">[<a href="#ref-Cleveland:2001aa" role="doc-biblioref">5</a>]</span>
+as well as from their predecessor, John Tukey <span class="citation">[<a href="#ref-Tukey:1962aa" role="doc-biblioref">6</a>]</span><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>
+, some 50 years before them. For the period running from 2001 to 2014,
+Semantic Scholar recorded 639 citations to the <strong>Two Cultures</strong> paper.
+Since 2014, Semantic Scholar recorded 2603 citations.
+References in the web are countless. Almost all of the discussion of the paper has to
+do with the main point of the paper - the predictive versus the data modeling approach to
+data analysis.</p>
+<p>In addition to calling out the divide between the two cultures in terms
+of suitability for tackling modern day problems, in his
+2001 manifesto Leo Breiman also points out that even when the data modeling approach
+is appropriate, statisticians are ill-prepared to solve these problems because of the
+<strong>training by technique</strong> taught in schools and consequent misuses of these in practice
+leading practitioners to view the role of the statistician as one of finding the
+most appropriate pre-defined technique to solve a problem, rather than trying to
+solve the problem directly<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.
+The significance of this criticism of common statistical practice
+has been ignored by most<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</p>
+<p>While teaching the class the theoretical foundations of applied statistics, Professor
+Breiman often reminded us to focus on the problem; not the technique, and
+to clearly <strong>identify the sources of variability</strong> rather than accept that the variability
+assumed by any standard model is adequate. He was urging the students to think;
+not follow recipes. This is central dogma of this monograph: <strong>think before you stat</strong>.</p>
+<hr />
+<p>Leo Breiman’s career followed a very interesting and unusual path.
+He left an academic post as a theoretical probabilist to earn
+a living as a consultant while teaching mathematics to kids from Mexico.
+In doing so he became deeply interested in the education system.
+He ran for and was elected to the Santa Monica School Board and
+soon after became its president. While he was
+“having a wonderful time consulting…
+solving real problems, working with data,”
+he was offered a faculty position
+in the Department of Statistics at UC, Berkeley,
+which he accepted <span class="citation">[<a href="#ref-Olshen:2001aa" role="doc-biblioref">1</a>,<a href="#ref-Cutler:2010aa" role="doc-biblioref">8</a>]</span><a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>.</p>
+<p><br/></p>
+<div id="nail-finders-the-edifice-complex-and-oz" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Nail Finders, The Edifice Complex and Oz<a href="intro.html#nail-finders-the-edifice-complex-and-oz" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A short time after returning to academics, Professor
+Breiman wrote an interesting paper titled
+“Nail Finders, Edifices, and Oz” <span class="citation">[<a href="#ref-Breiman:1984aa" role="doc-biblioref">7</a>]</span>.
+He writes:</p>
+<blockquote>
+<p>The thesis of this paper is that many, if not most,
+statisticians in government and industry are poorly
+trained for their profession with the result that they
+are poor problem solvers …</p>
+</blockquote>
+<p>While we may disagree as to whether or not statisticians
+deserve this characterization, we have to agree that the
+traits described in the paper are best avoided - the find-the-nail,
+edifice and Oz complex.</p>
+<ul>
+<li>The find-the-nail complex</li>
+</ul>
+<blockquote>
+<p>If all you have is a hammer, then every problem
+will look like a nail.</p>
+<footer>
+— Jerome Freidman saying (source unknown) <span class="citation">[<a href="#ref-Breiman:1984aa" role="doc-biblioref">7</a>]</span>
+</footer>
+</blockquote>
+<p>Applied to statisticians, this refers to <em>absorption</em> with the technique
+(unhealthy infatuation with models?) rather than with the problem;
+“the failure to see the problem whole; to ask, <em>Does it all make sense?</em>”
+and, dare I say, “where’s the randomness coming from.”</p>
+<p>Are statisticians nail-finders? How many of us have encountered survival data
+at work and Not used the Cox proportional hazards model to analyze the data?
+How many of us have used something other than logistic or probit
+regression to analyze data when the outcome is dichotomous.
+In some cases these techniques are appropriate,
+but there must be numerous cases when some other approach would be
+preferable, but never considered.</p>
+<p>The nail finder syndrome is encouraged to a large extent
+by the usual textbook format
+which includes neat examples associated with each introduced technique.
+This format leads to the belief that there is
+a ready-made canned solution for every problem. In this modus operandi,
+little to no effort is spent trying to get to a deep understanding of the
+problem at hand, and the data to help solve the problem;
+one only tries to characterize the problem
+to the extent necessary to find a suitably well matched canned solution.</p>
+<p>In laying out these notes we will avoid this format. Case studies in
+data analysis will be laid out in separate sections with no connection
+to the notes sections, some of which do introduce specific
+analysis methods.</p>
+<ul>
+<li>The edifice complex</li>
+</ul>
+<p>This refers to the building of a large, elaborate and many
+layered statistical analysis often covering up what is simple and
+obvious.*</p>
+<p>Another trap best avoided - inventing complexity when there isn’t any.
+Not every problem presented to a statistician requires statistical
+methodologies for their solution. In some cases the solution may reveal itself
+in a plot or in a sketch which captures the essence of the problem.</p>
+<ul>
+<li>The Wizard of Oz Complex</li>
+</ul>
+<p><em>The exploitation of the mysteries of statistics to dazzle and mystify
+the less knowledgable.</em></p>
+<p>This calls for a little break:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8ZYG2PCyNfE" title="Give them the old Razzle Dazzle" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><strong>Include illustrations of the above - open contributions from XXXers</strong></p>
+<p><br/></p>
+</div>
+<div id="wheres-the-randomness" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Where’s the randomness?<a href="intro.html#wheres-the-randomness" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p>In God we trust.
+All others, bring data and
+Leave your beliefs at the door<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>.</p>
+<footer>
+— adapted from W. Edwards Deming
+</footer>
+</blockquote>
+<p>Against this background for the need of change, when we enter
+Leo Breiman’s classroom we enter a world deeply
+steeped in the theoretical underpinnings of
+applied statistics. Although all of the necessary theory was
+included in the course material, we spent very little time
+marvelling at the beauty of the mathematical results
+underlying some statistical theories (for example …) and instead
+were encouraged and challenged to struggle with
+difficult questions: what happens if this assumption is not true?
+or that assumption? I remember one particular lecture watching Professor Breiman
+repeating the mantra “<strong>where is the randomness?
+where’s the randomness coming from</strong>?” while pacing up and down the front of the class.</p>
+<p>Some 30 years later, faced with the problem of trying to answer questions
+about a system generating data which comes in the form of batches of points
+having a yet to be fully understood correlation structure, and subject to
+sporadic surges of variation of unknown origin, Professor Breiman’s words
+reverberate in my head. I now fully appreciate the relevance of the question -
+<strong>where’s the randomness coming from</strong>. I don’t think there is
+any exaggeration in claiming that if we can identify the relevant sources of variability,
+and how to capture them in an analysis dataset,
+we have basically fully solved the data analytic problem: we know exactly
+what data to collect and how to summarize them in order to
+answer the question of interest.</p>
+<p><br/></p>
+</div>
+<div id="what-next" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> What next?<a href="intro.html#what-next" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p>If the doors of perception were cleansed
+every thing would appear to man as it is, Infinite</p>
+<footer>
+— William Blake, The Marriage of Heaven and Hell (1790)
+</footer>
+</blockquote>
+<div id="the-theory" class="section level3 unnumbered hasAnchor">
+<h3>The theory<a href="intro.html#the-theory" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The plan is to go through professor Breiman’s notes
+and to connect the principles and questions
+raised to problems we face, thinking about the data
+and sources of variability - where is the
+randomness coming from.
+Having gone through these notes, we should be convinced
+of the truth of this idiom, and this in turn will provide the
+motivation and drive necessary to get to a full and accurate knowledge
+of the randomness present in the task at hand:
+there should never be any guessing or nonchalant
+presuming involved - the case for any assumed randomness in a data model
+must be made explicitly<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>.
+With this practice we can gain an appropriate level of confidence in the results
+that we gather to be true, and we should only have to deal with risks
+coming from well understood variability. Unexpected surprises
+will become the exception rather than the rule. This is the dream,
+and it remains a dream while we follow recipes and deliver
+ready-made <em>solutions</em> rather than tackle problems with an appropriate
+measure of ingenuity and perseverance.</p>
+<p>Professor Breiman’s class notes provide the statistical theory
+necessary to move forward with most data analysis projects.
+This may be a minimalists’ point of view in terms of
+required statistical theory background;
+we will see as we work through some problems.</p>
+<!--
+themselves in the course of our work will lend themselves to analysis
+using traditional and more or less standard linear modeling statistical
+techniques, many,  if not all, will have unique features - 
+randomness in the data, application or question of interest,  and
+inferential frame.  Identifying the unique features present of the task
+at hand is the primary role of the statistical analyst.
+If there are no new features to a new problem, leave it to AI or
+change the link to the input in last weeks' code, push go,
+and turn your attention to the next problem which requires careful
+consideration and may call for some innovation and ingenuity.  
+-->
+<p><br/></p>
+</div>
+<div id="the-practice" class="section level3 unnumbered hasAnchor">
+<h3>The practice<a href="intro.html#the-practice" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Leo Breiman firmly believed that statistics is about solving problems. We would
+not be doing justice to his legacy if we just went through his notes which describe
+some helpful theory whose only relevance in Professor Breiman’s mind was to provide
+tools to solve problems. With that in mind <strong>the essential content</strong> of this manuscript
+will not be the notes on theory, but <strong>illustration of applied statistics at work</strong>
+in solving problems. The task is therefore to include numerous case studies
+illustrating good data analysis practice.</p>
+<p>To be determined is the lay-out - where to insert the case studies.
+One thing is certain: we have to avoid the usual format of attaching
+examples to techniques as they are introduced. The usual textbook
+format which ties trivial, neat examples to technique
+as each new technique is introduced
+leads the reader to make unduly strong association between problem and technique,
+and to the belief that matching problems to textbook technique is the
+crunch of statistical analysis<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>.</p>
+<p>— Stat Student</p>
+
+</div>
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body">
+<div id="ref-Olshen:2001aa" class="csl-entry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Olshen, R. (2001). A conversaton with leo breiman. Statistical Science <em>16</em>, 184–198. Available at: <a href="https://doi.org/10.1214/ss/1009213290">https://doi.org/10.1214/ss/1009213290</a>.</div>
+</div>
+<div id="ref-Breiman:2001aa" class="csl-entry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Breiman, L. (2001). Statistical modeling: The two cultures. Statistical Science <em>16</em>, 199–215. Available at: <a href="http://www.jstor.org/stable/2676681">http://www.jstor.org/stable/2676681</a>.</div>
+</div>
+<div id="ref-Donoho:2017aa" class="csl-entry">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Donoho, D. (2017). 50 years of data science. Journal of Computational and Graphical Statistics <em>26</em>, 745–766. Available at: <a href="https://doi.org/10.1080/10618600.2017.1384734">https://doi.org/10.1080/10618600.2017.1384734</a>.</div>
+</div>
+<div id="ref-Chambers1993GreaterOL" class="csl-entry">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Chambers, J.M. (1993). Greater or lesser statistics: A choice for future research. Statistics and Computing <em>3</em>, 182–184. Available at: <a href="https://api.semanticscholar.org/CorpusID:122235676">https://api.semanticscholar.org/CorpusID:122235676</a>.</div>
+</div>
+<div id="ref-Cleveland:2001aa" class="csl-entry">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline">Cleveland, W. (2001). Data science: An action plan for expanding the technical areas of the field of statistics. International Statistical Review / Revue Internationale de Statistique <em>69</em>.</div>
+</div>
+<div id="ref-Tukey:1962aa" class="csl-entry">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline">Tukey, J.W. (1962). The future of data analysis. The Annals of Mathematical Statistics <em>33</em>, 1–67. Available at: <a href="http://www.jstor.org/stable/2237638">http://www.jstor.org/stable/2237638</a>.</div>
+</div>
+<div id="ref-Breiman:1984aa" class="csl-entry">
+<div class="csl-left-margin">7. </div><div class="csl-right-inline">Breiman, L. (1984). Nail finders, edifices, and oz (University of California, Berkeley. Department of Statistics; Available at https://digitalassets.lib.berkeley.edu/sdtr/proof/pdfs/032.pdf).</div>
+</div>
+<div id="ref-Cutler:2010aa" class="csl-entry">
+<div class="csl-left-margin">8. </div><div class="csl-right-inline">Cutler, A. (2010). Remembering leo breiman.</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>
+Analysts at XXX should recognize John Tukey as the inventor
+of the most utilized data display tool in the company.<a href="intro.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>
+a point which he made in a 1984 technical report
+titled <strong>Nail Finders, The Edifice Complex and Oz</strong> <span class="citation">[<a href="#ref-Breiman:1984aa" role="doc-biblioref">7</a>]</span>.<a href="intro.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>
+In his comments on The Two Cultures, Sir David Cox expressed skepticism
+regarding the claim of pervasive routinization of statistical analysis in practice.
+We can argue about the meaning of “pervasive” and “routinization” but I personally
+have not witnessed many examples of deep thought in statistical practice, nor
+much demand for it - the consumers of statistical analysis are commonly in need
+of a report required for some sort of compliance or in support of an hypothessis
+they already believe to be true. ie. Nobody has skin in the game, so to speak.
+Nobody is betting personal assets on the outcome of the statiscial analysis,
+and most have more to lose from inaction than from acting on bad information.<a href="intro.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>
+The conversation with Richard Olshen is extremely
+interesting and makes for a fascinating short tread.<a href="intro.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>
+It is just too taxing to verify repeatability
+which only occurs in an alternate universe.<a href="intro.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>
+This is especially true when we quote p-values. This is important
+and a separate section will be devoted to a discussion of p-values.<a href="intro.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>
+This is not quite the nail-finder’s syndrome, but a close relative -
+the tool-finder syndrome. The latter retains the tendency to
+work around the essential task of becoming intimately familiar
+with the substance of the problem before trying to solve it.<a href="intro.html#fnref7" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="preliminaries.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

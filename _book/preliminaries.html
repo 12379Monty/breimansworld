@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Preliminaries | Where’s the Randomness   Notes Adapted from Leo Breiman’s   Applied Statitics Class of 1991</title>
+  <meta name="description" content="<p>Lecture notes in applied statistics from a course
+taught by Leo Breiman at the UC, Berkeley statistics
+department in 1991.</p>" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Preliminaries | Where’s the Randomness   Notes Adapted from Leo Breiman’s   Applied Statitics Class of 1991" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>Lecture notes in applied statistics from a course
+taught by Leo Breiman at the UC, Berkeley statistics
+department in 1991.</p>" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Preliminaries | Where’s the Randomness   Notes Adapted from Leo Breiman’s   Applied Statitics Class of 1991" />
+  
+  <meta name="twitter:description" content="<p>Lecture notes in applied statistics from a course
+taught by Leo Breiman at the UC, Berkeley statistics
+department in 1991.</p>" />
+  
+
+<meta name="author" content="Stat Student" />
+
+
+<meta name="date" content="2024-07-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="what-is-statistics.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Lecture Notes in Applied Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> The HTML output format for this example is bookdown::gitbook,</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#nail-finders-the-edifice-complex-and-oz"><i class="fa fa-check"></i><b>2.1</b> Nail Finders, The Edifice Complex and Oz</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#wheres-the-randomness"><i class="fa fa-check"></i><b>2.2</b> Where’s the randomness?</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#what-next"><i class="fa fa-check"></i><b>2.3</b> What next?</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#the-theory"><i class="fa fa-check"></i>The theory</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#the-practice"><i class="fa fa-check"></i>The practice</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="preliminaries.html"><a href="preliminaries.html"><i class="fa fa-check"></i><b>3</b> Preliminaries</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="preliminaries.html"><a href="preliminaries.html#eda"><i class="fa fa-check"></i><b>3.1</b> Exploratory Data Analysis</a></li>
+<li class="chapter" data-level="3.2" data-path="preliminaries.html"><a href="preliminaries.html#simulated-data-experimentation"><i class="fa fa-check"></i><b>3.2</b> Simulated Data Experimentation</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="what-is-statistics.html"><a href="what-is-statistics.html"><i class="fa fa-check"></i><b>4</b> What is statistics?</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="what-is-statistics.html"><a href="what-is-statistics.html#probability---inverse-statistics"><i class="fa fa-check"></i><b>4.1</b> Probability - inverse statistics</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="what-is-statistics.html"><a href="what-is-statistics.html#p-values"><i class="fa fa-check"></i><b>4.1.1</b> p-values</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="what-is-statistics.html"><a href="what-is-statistics.html#statistics---inverse-probability"><i class="fa fa-check"></i><b>4.2</b> Statistics - inverse probability</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="what-is-statistics.html"><a href="what-is-statistics.html#the-data-modeling-approach"><i class="fa fa-check"></i><b>4.2.1</b> The data modeling approach</a></li>
+<li class="chapter" data-level="" data-path="what-is-statistics.html"><a href="what-is-statistics.html#the-predictive-approach"><i class="fa fa-check"></i>The predictive approach</a></li>
+<li class="chapter" data-level="" data-path="what-is-statistics.html"><a href="what-is-statistics.html#the-predictive-data-modeling-approach"><i class="fa fa-check"></i>The predictive data modeling approach</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="doe.html"><a href="doe.html"><i class="fa fa-check"></i><b>5</b> Design of Experiments</a></li>
+<li class="chapter" data-level="6" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>6</b> Linear Models</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="linear-models.html"><a href="linear-models.html#regression"><i class="fa fa-check"></i><b>6.1</b> Regression</a></li>
+<li class="chapter" data-level="6.2" data-path="linear-models.html"><a href="linear-models.html#analysis-of-variance"><i class="fa fa-check"></i><b>6.2</b> Analysis of Variance</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="glm.html"><a href="glm.html"><i class="fa fa-check"></i><b>7</b> Generalized Linear Models</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="glm.html"><a href="glm.html#binary-data-and-logictic-models"><i class="fa fa-check"></i><b>7.1</b> Binary Data and Logictic Models</a></li>
+<li class="chapter" data-level="7.2" data-path="glm.html"><a href="glm.html#count-data-and-log-linear-models"><i class="fa fa-check"></i><b>7.2</b> Count Data and Log-Linear Models</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="predictive-analysis.html"><a href="predictive-analysis.html"><i class="fa fa-check"></i><b>8</b> Predictive Analysis</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="predictive-analysis.html"><a href="predictive-analysis.html#traditional-classification-analysis"><i class="fa fa-check"></i><b>8.1</b> Traditional Classification Analysis</a></li>
+<li class="chapter" data-level="8.2" data-path="predictive-analysis.html"><a href="predictive-analysis.html#modern-predictive-modeling"><i class="fa fa-check"></i><b>8.2</b> Modern Predictive Modeling</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="predictive-analysis.html"><a href="predictive-analysis.html#cart---the-birth-of-a-methodology"><i class="fa fa-check"></i><b>8.2.1</b> CART - The Birth of a Methodology</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>9</b> <span style="color:blue">Appendix</span></a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="appendix.html"><a href="appendix.html#breiman-versus-cox"><i class="fa fa-check"></i><b>9.1</b> <span style="color:blue">Breiman versus Cox </span></a></li>
+<li class="chapter" data-level="9.2" data-path="appendix.html"><a href="appendix.html#freedman-on-john-snow-shoe-leather-and-lines-of-evidence"><i class="fa fa-check"></i><b>9.2</b> Freedman on John Snow, Shoe Leather and Lines of Evidence</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https:url" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Where’s the Randomness <br> Notes Adapted from Leo Breiman’s <br> Applied Statitics Class of 1991</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="preliminaries" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Preliminaries<a href="preliminaries.html#preliminaries" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Before we get into Brieman’s world we should mention some
+important elements of data analysis which are not part of the class notes:
+Exploratory Data Analysis and Data Simulation.</p>
+<div id="eda" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Exploratory Data Analysis<a href="preliminaries.html#eda" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!--
+> Measure 7 times, cut once.  
+>
+><footer>--- Russian saying</footer>
+-->
+<!--
+> Verify all assumptions.
+> Look before, and after, you transform.
+> When you transform, verify!
+>
+><footer>--- Uncommon Sense</footer>
+-->
+<p>According to George E. P. Box (1980)<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
+<blockquote>
+<p>No statistical model can safely be assumed adequate.</p>
+</blockquote>
+<p>All models are based on a set of assumptions. The conclusions one can draw
+from the results sometimes depend as much on the veracity of the
+assumptions as on the data itself. In many cases, of the assumptions
+cannot verified to be approximately true, the data should not be analyzed at all.
+This is a crucial topic which is not discusses in Breiman’s notes.
+It is also rarely treated to any depths in textbooks which introduce students to
+data modeling. For one thing the topic is vast and deserves its own
+course. Another reason is that it is very context specific. There
+are tools which can be generally applicable and fall under the umbrella
+term Exploratory data analysis.</p>
+<p>Originally developed by John Tukey <span class="citation">[<a href="#ref-Tukey:1972aa" role="doc-biblioref">1</a>]</span> and <span class="citation">[<a href="#ref-Tukey:1977aa" role="doc-biblioref">2</a>]</span>,
+exploratory data analysis refers to a set of tools and techniques which enable us
+learn the basic features of a dataset and detect anomalies and unexpected features
+before proceeding to the more formal probabilistic modeling. Many of the
+original techniques remain in use today. The omni-present boxplot, for example,
+was first suggested by John Tukey around that time<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.</p>
+<p>EDA is greatly facilitated by readily available software as well as the modern
+hardware technologies which can quickly render beautiful plots. This is
+both great and not so great. It is great when it enables practitioners
+to do more EDA and let their minds wander unencumbered by technical
+challenges. It is not so great when the software does the thinking for you
+while crossing the line between EDA and SDA (statistical …), when the
+software automatically puts confidence intervals on plots for example<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</p>
+<p>Trevor Hastie, in a talk which is further explored below
+(<a href="https://www.youtube.com/watch?v=0EWJZIC4JxA">Trevor Hastie SLBD Talk (Bristol 2018)</a>
+and accompanying
+<a href="https://bristol.ac.uk/media-library/sites/jean-golding-institute/documents/Statistical%20learning%20with%20big%20data.compressed.pdf">SLBD Slides</a>),
+notes that with the advent of big data, data visualization has
+become challenging again and some may be tempted skip that essential
+step of the data analysis process. Professor Hastie remarks that
+the problems one runs into when analyzing data without
+familiarising oneself with the salient features of the data may be
+harder to detect but they have not disappeared.</p>
+<p>We will not fill this chapter with descriptions of EDA summaries and plots.
+The methods are varied and many
+(See <span class="citation">[<a href="#ref-Tukey:1977aa" role="doc-biblioref">2</a>–<a href="#ref-Gelman:2006aa" role="doc-biblioref">4</a>]</span>),
+and their utility intimately dependent on the context.
+EDA methods will instead be introduced as
+they come up in the course of the analyses described below.</p>
+<!-- 
+I do want to say a bit about `the boxplot` as it is so widely used, here and
+elsewhere.
+
+## The boxplot 
+
+The invention of the box-plot as we know it today is widely attributed to
+John Tukey, but Nicholas Cox points out that  the idea of
+comparing distributions by plotting quantiles  of distributions side
+by side predates Tukey's work by some 40 years (Cox (2009) [@Cox:2009aa])
+and  Crowe (1933) [@Crowe:1933aa]).
+
+Here is an inrtersting bit about the box-plot.  My PhD advisor,
+David Brillinger, who did his PhD under Tukey's supervison, once
+remarked that:
+
+> John Tukey never indented the box-plot as a way to 
+> compare the shape or locations of distributions;
+> John's focus at the time was the occurrence of outliers.
+
+
+-->
+</div>
+<div id="simulated-data-experimentation" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Simulated Data Experimentation<a href="preliminaries.html#simulated-data-experimentation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p>when you simulate fake data, you kinda have to have some sense
+of what’s going on. You’re starting from a position of understanding.</p>
+<footer>
+— Andrew Gelman
+</footer>
+</blockquote>
+<p>Simulations to evaluate assumptions made about the data structure,
+and for verifying statistical procedures and properties of model fits
+is another essential part of the data analysis process which didn’t make it
+into Professor Breiman’s notes.</p>
+<!--
+
+[Andrew Gelman](https://stat.columbia.edu/~gelman/) is nuts about
+fake-data simulation and can't stop blogging about it:
+
+* [Yes, I really really really like fake-data simulation, and I can’t stop talking about it.](https://statmodeling.stat.columbia.edu/2019/03/23/yes-i-really-really-really-like-fake-data-simulation-and-i-cant-stop-talking-about-it/) 
+* [Simulated-data experimentation: Why does it work so well?](https://statmodeling.stat.columbia.edu/2021/02/19/fake-data-simulation-why-does-it-work-so-well/) 
+* [Why I like hypothesis testing (it’s another way to say “fake-data simulation”)](https://statmodeling.stat.columbia.edu/2023/12/10/why-i-like-hypothesis-testing-its-another-way-to-say-fake-data-simulation/) 
+* [Simulation to understand measurement error in regression](https://statmodeling.substack.com/p/simulation-to-understand-measurement) - to appear
+
+* [the power of fake data simulations](https://michaeldewittjr.com/programming/2018-09-24-the-power-of-fake-data-simulations/) - this blog, with code, is
+a replication of what Andrew Gelman has already posted -
+[Multilevel data collection and analysis for weight training (with R code)](https://statmodeling.stat.columbia.edu/2018/09/22/38708/).  
+
+-->
+<p>Simulating data appropriately is a non-trivial exercise.
+The simulated data must conform to the properties of the
+real it is meant to meant mimic; not necessarily the properties
+of the data model assumed by the analysis method.
+In most applications of software engineering, there is no randomness:
+to each fixed input a specific
+output is expected and when there are no abends or errors
+of any kind and the expected output is obtained, the task is basically complete.
+In statistical analysis and data simulations, once the code works the task
+has only begun. Once the simulation code “works,” we need to simulate
+enough fake data to see if it really works - does it capture all of the
+salient <strong>features of the real data</strong>; we will look for ways this
+can be achieved.</p>
+<p>In addition to his work on data simulations, Andrew Gelman has also
+published on the topic of <code>multilevel data</code> which may be
+analogous to the data structure of plated samples coming off the pipeline.
+See Gilman and Hill (2006) <span class="citation">[<a href="#ref-Gelman:2006aa" role="doc-biblioref">4</a>]</span>, which also has a chapter
+on simulated data <span class="citation">[<a href="#ref-Gelman:2006bb" role="doc-biblioref">5</a>]</span> and software to boot
+(See <a href="https://stat.columbia.edu/~gelman/arm/">Data Analysis Using Regression and Multilevel/Hierarchical Model</a>).
+Other works of interest are Gelman, Hill and Vehtari (2020) <span class="citation">[<a href="#ref-Gelman:2020aa" role="doc-biblioref">6</a>]</span> and
+not yet published “Advanced Regression and Multilevel Models.”</p>
+
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body">
+<div id="ref-Tukey:1972aa" class="csl-entry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Tukey, J.W. (1972). Some graphic and semigraphic displays. Statistical papers in honor of George W. Snedecor <em>5</em>, 293–316.</div>
+</div>
+<div id="ref-Tukey:1977aa" class="csl-entry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Tukey, J.W. (1977). Exploratory data analysis (Springer).</div>
+</div>
+<div id="ref-Gelman:2006aa" class="csl-entry">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Gelman, A., and Hill, J. (2006). Data analysis using regression and multilevel/hierarchical models (Cambridge: Cambridge University Press) Available at: <a href="https://www.cambridge.org/core/product/32A29531C7FD730C3A68951A17C9D983">https://www.cambridge.org/core/product/32A29531C7FD730C3A68951A17C9D983</a>.</div>
+</div>
+<div id="ref-Gelman:2006bb" class="csl-entry">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline">Gelman, A., and Hill, J. eds. (2006). Simulation for checking statistical procedures and model fits. In Data analysis using regression and multilevel/hierarchical models Analytical methods for social research. (Cambridge: Cambridge University Press), pp. 155–166. Available at: <a href="https://www.cambridge.org/core/product/9546B05E0BE3DD5F20F63995F4139198">https://www.cambridge.org/core/product/9546B05E0BE3DD5F20F63995F4139198</a>.</div>
+</div>
+<div id="ref-Gelman:2020aa" class="csl-entry">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline">Gelman, A., Hill, J., and Vehtari, A. (2020). Regression and other stories (Cambridge: Cambridge University Press) Available at: <a href="https://www.cambridge.org/core/product/DD20DD6C9057118581076E54E40C372C">https://www.cambridge.org/core/product/DD20DD6C9057118581076E54E40C372C</a>.</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p><span class="citation">[<a href="#ref-Box:1980aa" role="doc-biblioref"><strong>Box:1980aa?</strong></a>]</span><a href="preliminaries.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>
+An interesting fact is that the idea of the boxplot first came
+to Tukey while he was interested in the patterns of residuals among many
+batches of points. I think that it’s fair to say that boplots now are used
+to study trend in the bodey of the data<a href="preliminaries.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>
+S, the statistical data analysis package on which R is based, was great
+at not doing the thinking for the user. Very often, all of the elements
+needed for many specific analyses are stored in data objects and the user
+has to extract these elements to conduct the more sophisticated analyses.
+These extractions sometimes require some expert knowledge, or at least you
+have to know what you’re doing. Some of the most modern and most popular
+extensions of R do most of the thinking and analysis for the user.
+Someone can now ggplot their way into a statistical conference without any
+idea what randomness is about.<a href="preliminaries.html#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="what-is-statistics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

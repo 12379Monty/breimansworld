@@ -1,0 +1,35 @@
+
+
+processing file: index.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |..............                                                        |  20%
+   inline R code fragments
+
+  |                                                                              |............................                                          |  40%
+label: unnamed-chunk-1 (with options) 
+List of 3
+ $ echo  : logi FALSE
+ $ eval  : logi FALSE
+ $ engine: chr "js"
+
+  |                                                                              |..........................................                            |  60%
+   inline R code fragments
+
+  |                                                                              |........................................................              |  80%
+label: unnamed-chunk-2 (with options) 
+List of 3
+ $ include: logi FALSE
+ $ eval   : logi TRUE
+ $ DO.ONCE: logi TRUE
+
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: index.knit.md
+
+/usr/local/bin/pandoc +RTS -K512m -RTS index.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output index.html --lua-filter /Users/fcollin/Library/R/4.0/library/bookdown/rmarkdown/lua/custom-environment.lua --lua-filter /Users/fcollin/Library/R/4.0/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Users/fcollin/Library/R/4.0/library/rmarkdown/rmarkdown/lua/latex-div.lua --lua-filter /Users/fcollin/Library/R/4.0/library/rmarkdown/rmarkdown/lua/anchor-sections.lua --metadata-file /var/folders/jk/d24lm6n944q5y650lph85m7w0000gp/T//RtmpqlyUTD/file90ca60a4873b --wrap preserve --standalone --section-divs --table-of-contents --toc-depth 3 --template /Users/fcollin/Library/R/4.0/library/bookdown/templates/gitbook.html --highlight-style pygments --number-sections --css style.css --mathjax --include-in-header /var/folders/jk/d24lm6n944q5y650lph85m7w0000gp/T//RtmpqlyUTD/rmarkdown-str90caa85582a.html --citeproc 
+
+Output created: proloque.html
+Warning message:
+In do_once((if (is_R_CMD_check()) stop else warning)("The function xfun::isFALSE() will be deprecated in the future. Please ",  :
+  The function xfun::isFALSE() will be deprecated in the future. Please consider using base::isFALSE(x) or identical(x, FALSE) instead.

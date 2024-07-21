@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 What is statistics? | Where’s the Randomness   Adapted from Leo Breiman’s Applied Statitics   Class Notes of 1991</title>
+  <meta name="description" content="<p>Lecture notes in applied statistics from a course
+taught by Leo Breiman at the UC, Berkeley statistics
+department in 1991.</p>" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 What is statistics? | Where’s the Randomness   Adapted from Leo Breiman’s Applied Statitics   Class Notes of 1991" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>Lecture notes in applied statistics from a course
+taught by Leo Breiman at the UC, Berkeley statistics
+department in 1991.</p>" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 What is statistics? | Where’s the Randomness   Adapted from Leo Breiman’s Applied Statitics   Class Notes of 1991" />
+  
+  <meta name="twitter:description" content="<p>Lecture notes in applied statistics from a course
+taught by Leo Breiman at the UC, Berkeley statistics
+department in 1991.</p>" />
+  
+
+<meta name="author" content="Stat Student" />
+
+
+<meta name="date" content="2024-07-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="preliminaries.html"/>
+<link rel="next" href="doe.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Lecture Notes in Applied Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Proloque</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#nail-finders-the-edifice-complex-and-oz"><i class="fa fa-check"></i><b>1.1</b> Nail Finders, The Edifice Complex and Oz</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#wheres-the-randomness"><i class="fa fa-check"></i><b>1.2</b> Where’s the randomness?</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#what-next"><i class="fa fa-check"></i><b>1.3</b> What next?</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#the-theory"><i class="fa fa-check"></i>The theory</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#the-practice"><i class="fa fa-check"></i>The practice</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="preliminaries.html"><a href="preliminaries.html"><i class="fa fa-check"></i><b>2</b> Preliminaries</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="preliminaries.html"><a href="preliminaries.html#eda"><i class="fa fa-check"></i><b>2.1</b> Exploratory Data Analysis</a></li>
+<li class="chapter" data-level="2.2" data-path="preliminaries.html"><a href="preliminaries.html#simulated-data-experimentation"><i class="fa fa-check"></i><b>2.2</b> Simulated Data Experimentation</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="what-is-statistics.html"><a href="what-is-statistics.html"><i class="fa fa-check"></i><b>3</b> What is statistics?</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="what-is-statistics.html"><a href="what-is-statistics.html#probability---inverse-statistics"><i class="fa fa-check"></i><b>3.1</b> Probability - inverse statistics</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="what-is-statistics.html"><a href="what-is-statistics.html#p-values"><i class="fa fa-check"></i><b>3.1.1</b> p-values</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="what-is-statistics.html"><a href="what-is-statistics.html#statistics---inverse-probability"><i class="fa fa-check"></i><b>3.2</b> Statistics - inverse probability</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="what-is-statistics.html"><a href="what-is-statistics.html#the-data-modeling-approach"><i class="fa fa-check"></i><b>3.2.1</b> The data modeling approach</a></li>
+<li class="chapter" data-level="" data-path="what-is-statistics.html"><a href="what-is-statistics.html#the-predictive-approach"><i class="fa fa-check"></i>The predictive approach</a></li>
+<li class="chapter" data-level="" data-path="what-is-statistics.html"><a href="what-is-statistics.html#the-predictive-data-modeling-approach"><i class="fa fa-check"></i>The predictive data modeling approach</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="doe.html"><a href="doe.html"><i class="fa fa-check"></i><b>4</b> Design of Experiments</a></li>
+<li class="chapter" data-level="5" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>5</b> Linear Models</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="linear-models.html"><a href="linear-models.html#regression"><i class="fa fa-check"></i><b>5.1</b> Regression</a></li>
+<li class="chapter" data-level="5.2" data-path="linear-models.html"><a href="linear-models.html#analysis-of-variance"><i class="fa fa-check"></i><b>5.2</b> Analysis of Variance</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="glm.html"><a href="glm.html"><i class="fa fa-check"></i><b>6</b> Generalized Linear Models</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="glm.html"><a href="glm.html#binary-data-and-logictic-models"><i class="fa fa-check"></i><b>6.1</b> Binary Data and Logictic Models</a></li>
+<li class="chapter" data-level="6.2" data-path="glm.html"><a href="glm.html#count-data-and-log-linear-models"><i class="fa fa-check"></i><b>6.2</b> Count Data and Log-Linear Models</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="predictive-analysis.html"><a href="predictive-analysis.html"><i class="fa fa-check"></i><b>7</b> Predictive Analysis</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="predictive-analysis.html"><a href="predictive-analysis.html#traditional-classification-analysis"><i class="fa fa-check"></i><b>7.1</b> Traditional Classification Analysis</a></li>
+<li class="chapter" data-level="7.2" data-path="predictive-analysis.html"><a href="predictive-analysis.html#modern-predictive-modeling"><i class="fa fa-check"></i><b>7.2</b> Modern Predictive Modeling</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="predictive-analysis.html"><a href="predictive-analysis.html#cart---the-birth-of-a-methodology"><i class="fa fa-check"></i><b>7.2.1</b> CART - The Birth of a Methodology</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>8</b> <span style="color:blue">Appendix</span></a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="appendix.html"><a href="appendix.html#breiman-versus-cox"><i class="fa fa-check"></i><b>8.1</b> <span style="color:blue">Breiman versus Cox </span></a></li>
+<li class="chapter" data-level="8.2" data-path="appendix.html"><a href="appendix.html#freedman-on-john-snow-shoe-leather-and-lines-of-evidence"><i class="fa fa-check"></i><b>8.2</b> Freedman on John Snow, Shoe Leather and Lines of Evidence</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https:url" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Where’s the Randomness <br> Adapted from Leo Breiman’s Applied Statitics <br> Class Notes of 1991</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="what-is-statistics" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> What is statistics?<a href="what-is-statistics.html#what-is-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<blockquote>
+<p>Without data, you’re just another person with an opinion.</p>
+<footer>
+— W. Edwards Deming
+</footer>
+</blockquote>
+<div id="probability---inverse-statistics" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Probability - inverse statistics<a href="what-is-statistics.html#probability---inverse-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p>The worst thing in statistics had to be the p-value.
+Then came the q-value.</p>
+<footer>
+— Unknown Origin
+</footer>
+</blockquote>
+<p>When statistics first emerged it was known as
+inverse probability. Michael I. Jordan traces this
+derivation back the Laplace in the 18th century:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AQUAPiHahVY&amp;t=92s" title="What is Statistics? (Michael I. Jordan) | AI Podcast Clips" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><br/></p>
+<p>Before going on to define statistics, it might be helpful to think about
+what it is not - probability.</p>
+<p>((
+* Overview of <em>probability</em> or survey of the problems probability
+deals wuth.</p>
+<ul>
+<li>Perhaps just enough probability to discuss p-values.
+))</li>
+</ul>
+<p><br/></p>
+<div id="p-values" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> p-values<a href="what-is-statistics.html#p-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The p-value may deserve the lot of being the worst concept in statiistics,
+but only because it is so rarely used properly.<!--  If p-values were only quoted
+in the proper context it would suffer less abuse because only for one
+they would be much less murmur about them as they require a very specific
+setup in order to deserve being  ... -->
+p-values are probabilities and keeping that notion clear is critically
+important if we want to avoid the many pitfalls associated with p-values,
+of which there are many.</p>
+<ul>
+<li>Include a scroll of references documenting problems which arise when p-values
+are used uncritically, the association with publication requirements and
+the effect this has had on science.</li>
+</ul>
+<p>If we keep in mind what p-values are, their mis-use can almost be
+completely eradicated, at least locally.</p>
+<p>A p-value is a probability which comes from a probability distribution.
+What is needed for a p-value to have meaning:</p>
+<ul>
+<li><p>replication or repetition with an element of randomness.</p></li>
+<li><p>an understanding of the underlying mechanism giving rise to the randomness -
+a model for the probability distribution or probability law which accurately
+captures the randomness in the process underlying the outcome(s) on which the
+p-values are based.</p></li>
+</ul>
+<p>Before quoting a p-value, ask yourself:</p>
+<ul>
+<li>what is the event?</li>
+<li>where is the randomness coming from?</li>
+<li>what is the data generation model and the ensuing probability model
+assumed by the p-value inference?</li>
+</ul>
+<p>Or ask yoursel just one question:</p>
+<ul>
+<li>can I make a bet in favor of, or against the outcome which the p-value
+refers to? How would the outomce of this wager be resolved?</li>
+</ul>
+<p>If the answer to these questions don’t easily roll off your tongue,
+it is probably best not to quote a p-value and stick to
+descriptive statistics: mean, sd, standard units.</p>
+<p>Situations when quoting p-values is clearly inappropriate include:</p>
+<ul>
+<li>One-offs which will never or cannot be replicated.
+<ul>
+<li>a summary statistic refers to a population has no associated p-value</li>
+</ul></li>
+<li>The specifics of how the data were collected in unknown.</li>
+<li>Statistics encountered during the course of exploratory
+data analysis.</li>
+<li>When examining features of study groups which were populated
+by random assignment.
+<ul>
+<li>participants from a known population are assigned at random to two groups;
+what test is implied by a p-value attached to the difference in the proportion of females
+beteen the two groups?</li>
+</ul></li>
+</ul>
+<p>The misuses of p-values can be greatly reduced if we only quote them in the
+context of an analysis which follows a statistical analysis plan in which
+a set of hypotheses are clearly described.</p>
+<p><br/></p>
+</div>
+</div>
+<div id="statistics---inverse-probability" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Statistics - inverse probability<a href="what-is-statistics.html#statistics---inverse-probability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="the-data-modeling-approach" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> The data modeling approach<a href="what-is-statistics.html#the-data-modeling-approach" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>George Box famously said <span class="citation">[<a href="#ref-Box:1976aa" role="doc-biblioref">15</a>]</span>:</p>
+<blockquote>
+<p>all models are wrong,
+but some are useful</p>
+</blockquote>
+<p>A far better quotation from the same paper by Box is,</p>
+<blockquote>
+<p>Since all models are wrong the scientist
+must be alert to what is importantly wrong.
+It is inappropriate to be concerned about mice
+when there are tigers around<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a></p>
+<footer>
+— Phil Stark (2022) <span class="citation">[<a href="#ref-Stark:2022aa" role="doc-biblioref">16</a>]</span>
+</footer>
+</blockquote>
+<blockquote>
+<p>to pull a rabbit from a hat,
+a rabbit must first be placed in the hat</p>
+<footer>
+— David A. Freedman
+</footer>
+</blockquote>
+</div>
+<div id="the-predictive-approach" class="section level3 unnumbered hasAnchor">
+<h3>The predictive approach<a href="what-is-statistics.html#the-predictive-approach" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>the proof of the pudding is in the eating</p>
+<footer>
+— Proverb dating back to the 14th century <a href="https://en.wiktionary.org/wiki/the_proof_of_the_pudding_is_in_the_eating">wkp</a>
+</footer>
+</blockquote>
+<p>What Professor Breiman referred to as <code>the algorithmic approach</code>
+was later called `the predictive modeling approach by
+David Donoho <span class="citation">[<a href="#ref-Donoho:2017aa" role="doc-biblioref">3</a>]</span>. We will adopt that terminology
+as well.</p>
+<p>… describe predictive modeling …</p>
+<p><br/></p>
+</div>
+<div id="the-predictive-data-modeling-approach" class="section level3 unnumbered hasAnchor">
+<h3>The predictive data modeling approach<a href="what-is-statistics.html#the-predictive-data-modeling-approach" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="high-dimensional-data" class="section level4 unnumbered hasAnchor">
+<h4>High Dimensional Data<a href="what-is-statistics.html#high-dimensional-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Some modern data problems which involve the analysis of large datasets
+can only be solved by a combination of both data and predictive modeling
+approaches. Omics - genomics, transcriptomics, proteomics,
+metabolomics and other omics - refer to high-throughput
+experimental technologies which produce measurements related to the
+molecular content of cells. Genomic platforms, for example,
+record measurements indicating the abundance of
+<a href="#" title="the RNA strand that is produced when a gene is transcribed">RNA transcripts</a>
+present in the cells of processed samples. Different
+platforms use different technologies to obtain the measurements on
+transcript abundance, and all platforms require sophisticated pipelines
+to process the platform’s hardware readout and produce the
+transcript abundance measurements required for downstream analysis.
+These in turn require further processing
+in order to provide data in a form that can be used to address the biological
+questions of interest, which genes are differentially expressed between two
+groups of samples for example.</p>
+<p>First we discuss data analyses which are carried out at the so-called
+down-stream end of the analysis pipeline, following earlier analyses,
+sometimes called pre-processing, which transform the machine read-outs
+into analysis units - vectors of gene expression and protein concentrations,
+for example.</p>
+<p>Hastie and colleagues coined the term <code>Statistical Learning</code> to refer to<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>:</p>
+<blockquote>
+<p>a branch of applied statistics that
+emerged in response to machine learning,
+emphasizing statistical models and assessment of
+uncertainty.</p>
+</blockquote>
+<p>The primary contrast with <code>Machine Learning</code>, which is a field focused on
+constructing algorithms that can learn from data, is the incorporation of
+assessment of uncertainty in the evaluation of a predictor’s performance<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a>.
+The statistical learning approach is prescribed and illustrated in
+<span class="citation">[<a href="#ref-hastie:2009aa" role="doc-biblioref">17</a>–<a href="#ref-James:2023aa" role="doc-biblioref">20</a>]</span>.</p>
+<div id="examples-microarray-data" class="section level5 unnumbered hasAnchor">
+<h5>Examples: microarray data<a href="what-is-statistics.html#examples-microarray-data" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+</div>
+</div>
+<div id="applied-statistics-at-work" class="section level4 hasAnchor" number="3.2.1.1">
+<h4><span class="header-section-number">3.2.1.1</span> Applied Statistics at Work<a href="what-is-statistics.html#applied-statistics-at-work" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Another situation which calls for a hybrid between
+the data modeling approach and the predictive modeling
+approach to statistics is the work place where data
+are collected and analyzed for the sole purpose of
+making decisions and taking actions. In this
+context it could be argued that even when data modeling
+is a useful and sometimes necessary port of the analysis,
+the value of the modeling must be assessed in view
+of some predictions predicated on the analysis results.<br />
+Interpretation of fitted models is secondary to their
+value in making useful predictions.</p>
+
+</div>
+</div>
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body">
+<div id="ref-Donoho:2017aa" class="csl-entry">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Donoho, D. (2017). 50 years of data science. Journal of Computational and Graphical Statistics <em>26</em>, 745–766. Available at: <a href="https://doi.org/10.1080/10618600.2017.1384734">https://doi.org/10.1080/10618600.2017.1384734</a>.</div>
+</div>
+<div id="ref-Box:1976aa" class="csl-entry">
+<div class="csl-left-margin">15. </div><div class="csl-right-inline">Box, G.E.P. (1976). Science and statistics. Journal of the American Statistical Association <em>71</em>, 791–799. Available at: <a href="http://www.jstor.org/stable/2286841">http://www.jstor.org/stable/2286841</a>.</div>
+</div>
+<div id="ref-Stark:2022aa" class="csl-entry">
+<div class="csl-left-margin">16. </div><div class="csl-right-inline">Stark, P.B. (2022). Pay no attention to the model behind the curtain. Pure and Applied Geophysics <em>179</em>, 4121–4145. Available at: <a href="https://doi.org/10.1007/s00024-022-03137-2">https://doi.org/10.1007/s00024-022-03137-2</a>.</div>
+</div>
+<div id="ref-hastie:2009aa" class="csl-entry">
+<div class="csl-left-margin">17. </div><div class="csl-right-inline">Hastie, T., Tibshirani, R., and Friedman, J.H. (2009). The elements of statistical learning: Data mining, inference, and prediction (Springer) Available at: <a href="https://books.google.com/books?id=eBSgoAEACAAJ">https://books.google.com/books?id=eBSgoAEACAAJ</a>.</div>
+</div>
+<div id="ref-James:2023aa" class="csl-entry">
+<div class="csl-left-margin">20. </div><div class="csl-right-inline">James, G., Witten, D., Hastie, T., and Tibshirani, R. (2023). An introduction to statistical learning: With applications in r G. James, D. Witten, T. Hastie, and R. Tibshirani, eds. (New York, NY: Springer New York) Available at: <a href="https://www.statlearning.com/">https://www.statlearning.com/</a>.</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="11">
+<li id="fn11"><p>slight modification of quote<a href="what-is-statistics.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>
+this material taken from
+<a href="https://www.youtube.com/watch?v=0EWJZIC4JxA">Trevor Hastie SLBD Talk (Bristol 2018)</a>
+and accompanying
+<a href="https://bristol.ac.uk/media-library/sites/jean-golding-institute/documents/Statistical%20learning%20with%20big%20data.compressed.pdf">SLBD Slides</a><a href="what-is-statistics.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>
+I can’t believe that machine learners have no interest in uncertainty.
+In this story the contrast must be between an assessment of uncertainty
+based entirely on empirical results, as used by the machine learning community,a
+and an assessment of uncertainty which incorporates some theoretical results
+in addition to empirical findings. I think that this distinction is rather slim.
+Another distinction that could be made is the we can assume that
+the statistical learner, by virtue of their desire to incorporate
+theoretical results in the assessment of uncertainty, will have a
+preference for simpler models, which may translate into
+a stronger sense of generalizability and extendability.<a href="what-is-statistics.html#fnref13" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="preliminaries.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="doe.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

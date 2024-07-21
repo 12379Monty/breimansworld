@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8 Appendix | Where’s the Randomness   Adapted from Leo Breiman’s Applied Statitics   Class Notes of 1991</title>
+  <meta name="description" content="<p>Lecture notes in applied statistics from a course
+taught by Leo Breiman at the UC, Berkeley statistics
+department in 1991.</p>" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 Appendix | Where’s the Randomness   Adapted from Leo Breiman’s Applied Statitics   Class Notes of 1991" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>Lecture notes in applied statistics from a course
+taught by Leo Breiman at the UC, Berkeley statistics
+department in 1991.</p>" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 Appendix | Where’s the Randomness   Adapted from Leo Breiman’s Applied Statitics   Class Notes of 1991" />
+  
+  <meta name="twitter:description" content="<p>Lecture notes in applied statistics from a course
+taught by Leo Breiman at the UC, Berkeley statistics
+department in 1991.</p>" />
+  
+
+<meta name="author" content="Stat Student" />
+
+
+<meta name="date" content="2024-07-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="predictive-analysis.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Lecture Notes in Applied Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Proloque</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#nail-finders-the-edifice-complex-and-oz"><i class="fa fa-check"></i><b>1.1</b> Nail Finders, The Edifice Complex and Oz</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#wheres-the-randomness"><i class="fa fa-check"></i><b>1.2</b> Where’s the randomness?</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#what-next"><i class="fa fa-check"></i><b>1.3</b> What next?</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#the-theory"><i class="fa fa-check"></i>The theory</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#the-practice"><i class="fa fa-check"></i>The practice</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="preliminaries.html"><a href="preliminaries.html"><i class="fa fa-check"></i><b>2</b> Preliminaries</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="preliminaries.html"><a href="preliminaries.html#eda"><i class="fa fa-check"></i><b>2.1</b> Exploratory Data Analysis</a></li>
+<li class="chapter" data-level="2.2" data-path="preliminaries.html"><a href="preliminaries.html#simulated-data-experimentation"><i class="fa fa-check"></i><b>2.2</b> Simulated Data Experimentation</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="what-is-statistics.html"><a href="what-is-statistics.html"><i class="fa fa-check"></i><b>3</b> What is statistics?</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="what-is-statistics.html"><a href="what-is-statistics.html#probability---inverse-statistics"><i class="fa fa-check"></i><b>3.1</b> Probability - inverse statistics</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="what-is-statistics.html"><a href="what-is-statistics.html#p-values"><i class="fa fa-check"></i><b>3.1.1</b> p-values</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="what-is-statistics.html"><a href="what-is-statistics.html#statistics---inverse-probability"><i class="fa fa-check"></i><b>3.2</b> Statistics - inverse probability</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="what-is-statistics.html"><a href="what-is-statistics.html#the-data-modeling-approach"><i class="fa fa-check"></i><b>3.2.1</b> The data modeling approach</a></li>
+<li class="chapter" data-level="" data-path="what-is-statistics.html"><a href="what-is-statistics.html#the-predictive-approach"><i class="fa fa-check"></i>The predictive approach</a></li>
+<li class="chapter" data-level="" data-path="what-is-statistics.html"><a href="what-is-statistics.html#the-predictive-data-modeling-approach"><i class="fa fa-check"></i>The predictive data modeling approach</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="doe.html"><a href="doe.html"><i class="fa fa-check"></i><b>4</b> Design of Experiments</a></li>
+<li class="chapter" data-level="5" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>5</b> Linear Models</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="linear-models.html"><a href="linear-models.html#regression"><i class="fa fa-check"></i><b>5.1</b> Regression</a></li>
+<li class="chapter" data-level="5.2" data-path="linear-models.html"><a href="linear-models.html#analysis-of-variance"><i class="fa fa-check"></i><b>5.2</b> Analysis of Variance</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="glm.html"><a href="glm.html"><i class="fa fa-check"></i><b>6</b> Generalized Linear Models</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="glm.html"><a href="glm.html#binary-data-and-logictic-models"><i class="fa fa-check"></i><b>6.1</b> Binary Data and Logictic Models</a></li>
+<li class="chapter" data-level="6.2" data-path="glm.html"><a href="glm.html#count-data-and-log-linear-models"><i class="fa fa-check"></i><b>6.2</b> Count Data and Log-Linear Models</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="predictive-analysis.html"><a href="predictive-analysis.html"><i class="fa fa-check"></i><b>7</b> Predictive Analysis</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="predictive-analysis.html"><a href="predictive-analysis.html#traditional-classification-analysis"><i class="fa fa-check"></i><b>7.1</b> Traditional Classification Analysis</a></li>
+<li class="chapter" data-level="7.2" data-path="predictive-analysis.html"><a href="predictive-analysis.html#modern-predictive-modeling"><i class="fa fa-check"></i><b>7.2</b> Modern Predictive Modeling</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="predictive-analysis.html"><a href="predictive-analysis.html#cart---the-birth-of-a-methodology"><i class="fa fa-check"></i><b>7.2.1</b> CART - The Birth of a Methodology</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>8</b> <span style="color:blue">Appendix</span></a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="appendix.html"><a href="appendix.html#breiman-versus-cox"><i class="fa fa-check"></i><b>8.1</b> <span style="color:blue">Breiman versus Cox </span></a></li>
+<li class="chapter" data-level="8.2" data-path="appendix.html"><a href="appendix.html#freedman-on-john-snow-shoe-leather-and-lines-of-evidence"><i class="fa fa-check"></i><b>8.2</b> Freedman on John Snow, Shoe Leather and Lines of Evidence</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https:url" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Where’s the Randomness <br> Adapted from Leo Breiman’s Applied Statitics <br> Class Notes of 1991</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="appendix" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Chapter 8</span> <span style="color:blue">Appendix</span><a href="appendix.html#appendix" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="breiman-versus-cox" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> <span style="color:blue">Breiman versus Cox </span><a href="appendix.html#breiman-versus-cox" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In Statistical Modeling: The Two Cultures <span class="citation">[<a href="#ref-Breiman:2001aa" role="doc-biblioref">2</a>]</span>
+Professor Leo Breiman bemoans the fact that a vast majority
+of statisticians have pigeon-holed themselves to such an extent
+that the field is becoming irrelevant with the emergence of new data
+and problems which do not conform to the requirements of classical
+statistical methodologies. When Professor Breiman returned to academia in
+1980 after 13 years of statistical consulting, he was deeply troubled
+by the prevalent modus operandi in the field of statistics:
+<em>every article in the Annals of Statistics,
+the flagship journal of theoretical statistics, started with</em>
+<strong>Assume that the data are generated by the following model</strong>,
+followed by mathematics exploring inference, hypothesis testing and
+asymptotics. Professor Breiman goes on to describe some of
+the deficiencies in the applications of statistics which this
+approach has led to before going on to describe an alternative to
+the classical statistical data modeling approach, <code>algorithmic modeling</code><a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a>.</p>
+<p>There are two parts to Professor Breiman’s criticism.
+One part of the criticism is that some modern day problems
+are just not amenable to the classical statistical approaches and
+require a shift in the conventional statistical data analysis paradigm.
+The other part of the criticism is that even when data modeling is an
+appropriate way to solve a problem, the traditional approach has
+led to questionable analyses, results, and conclusions due
+to uncritical use of standard methods and lack of effort
+to customize analysis to the specific needs of each problem.</p>
+<p>One of the statisticians invited to comment on Professor Breiman’s
+criticism of the current state of affairs in the field of statistics was
+Sir David Cox, known for, among many other influential works,
+the Cox proportional hazards model. We will focus on his comments as
+his disagreement with the notions put forth professor Breiman are
+the strongest among the commentators.</p>
+<p>
+<p/>
+<ul>
+<li>“Professor Breiman takes data as his starting point.
+I would prefer to start with an issue, a question or a scientific hypothesis”
+<ul>
+<li>Nobody would seriously argue that starting with anything other than
+the question is a good idea, but the tendency of practitioners to
+assume convenient data models, and use the canned, turn-key analytical procedures
+which come with these models, suggests that these practitioners are
+quite content with starting with the solution, which one might
+argue is an even bigger assault to common sense than starting with
+the data.</li>
+</ul></li>
+</ul>
+<p>
+<p/>
+<ul>
+<li>“Professor Breiman emphasizes prediction as the objective,
+success at prediction being the criterion of success,
+as contrasted with issues of interpretation or understanding.”
+<ul>
+<li>This is another moot point. When we can confidently proceed with
+a defendable data model, the assessment of the utility of predictions
+made with the model can only enhance interpretation.</li>
+</ul></li>
+</ul>
+<p>
+<p/>
+<ul>
+<li>“Often the prediction is under quite different conditions from the data.
+ie. it may be desired to predict the consequences of something only
+indirectly addressed by the data available for analysis.”
+<ul>
+<li>Making predictions to a space beyond the space spanned by
+the data used to estimate the model would be hazardous,
+no matter what modeling approach is used.</li>
+</ul></li>
+</ul>
+<p>
+<p/>
+<ul>
+<li>After describing an idyllic data analysis package and explaining why
+the details of such are not published, Sir David goes on to say
+“By contrast, Professor Breiman equates mainstream applied statistics
+to a relatively mechanical process involving somehow or other
+choosing a model, often a default model of standard form, and
+applying standard methods of analysis and goodness-of-fit procedures. …<br />
+It is true that many of the analyses done by non-statisticians or
+by statisticians under severe time constraints are more or less like
+those Professor Breiman describes.”
+<ul>
+<li>Professor Cox admits that this automated or mechanical
+process is likely to be favored when working under severe time constraints;
+<ul>
+<li>What Sir David Cox doesn’t realize is that this is part of the job description
+for a statistician working in industry - must be prepared to work
+under severe time constraints. I am a witness to the fact that the
+relatively mechanical process described by Professor Breiman <strong>is</strong>
+mainstream applied statistics in my industry<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>
+<p/>
+<ul>
+<li>Professor Cox goes on to forgive the laps in rigor in the application of
+statistical techniques to analyse data with the observation that
+“one suspects that quite often the limitations of conclusions lie
+more in weakness of data quality and study design than in ineffective analysis.”
+How would a practitioner who uncritically uses the common modern day
+approach ever become aware of the weakness of the data or the design?
+The answer is likely to be never, as careful consideration is rarely
+given to the suitability of the model or the quality of the data.</li>
+</ul>
+<blockquote>
+A system in which there are no checks and balances
+in place to ensure the lasting validity of results,
+but only uncritically rewards adherance to uninfomed
+timelines, provides little incentive for data analysis
+professionals to incorporate careful scrutiny of assumptions
+or innovative solutions in their practice.
+<footer>
+— Stat Student
+</footer>
+</blockquote>
+<p>
+<p/>
+</div>
+<div id="freedman-on-john-snow-shoe-leather-and-lines-of-evidence" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Freedman on John Snow, Shoe Leather and Lines of Evidence<a href="appendix.html#freedman-on-john-snow-shoe-leather-and-lines-of-evidence" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Notes</p>
+<ul>
+<li><span class="citation">[<a href="#ref-Freedman:1991aa" role="doc-biblioref">21</a>]</span>:
+<ul>
+<li>Snow’s work on cholera is presented as a success story for
+scientific reasoning based on nonexperimental data. Failure stories are
+also discussed, and comparisons may provide some insight. In particular,
+this paper suggests that statistical technique can seldom be an adequate
+substitute for good design, relevant data, and testing predictions against reality
+in a variety of settings.</li>
+</ul></li>
+<li><span class="citation">[<a href="#ref-Freedman:2008aa" role="doc-biblioref">22</a>]</span>:
+<ul>
+<li>Proportional-hazards models are frequently used to analyze data from
+randomized controlled trials. This is a mistake. Randomization does not
+justify the models, which are rarely informative. Simpler analytic methods
+should be used first.</li>
+</ul></li>
+</ul>
+<p>Also see <span class="citation">[<a href="#ref-Freedman:2008ab" role="doc-biblioref">28</a>]</span>.</p>
+
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body">
+<div id="ref-Breiman:2001aa" class="csl-entry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Breiman, L. (2001). Statistical modeling: The two cultures. Statistical Science <em>16</em>, 199–215. Available at: <a href="http://www.jstor.org/stable/2676681">http://www.jstor.org/stable/2676681</a>.</div>
+</div>
+<div id="ref-Donoho:2017aa" class="csl-entry">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Donoho, D. (2017). 50 years of data science. Journal of Computational and Graphical Statistics <em>26</em>, 745–766. Available at: <a href="https://doi.org/10.1080/10618600.2017.1384734">https://doi.org/10.1080/10618600.2017.1384734</a>.</div>
+</div>
+<div id="ref-Freedman:1991aa" class="csl-entry">
+<div class="csl-left-margin">21. </div><div class="csl-right-inline">Freedman, D.A. (1991). Statistical models and shoe leather. Sociological Methodology <em>21</em>, 291–313. Available at: <a href="http://www.jstor.org/stable/270939">http://www.jstor.org/stable/270939</a>.</div>
+</div>
+<div id="ref-Freedman:2008aa" class="csl-entry">
+<div class="csl-left-margin">22. </div><div class="csl-right-inline">Freedman, D. (2008). Randomization does not justify logistic regression. Statistical Science <em>23</em>.</div>
+</div>
+<div id="ref-Freedman:2008ab" class="csl-entry">
+<div class="csl-left-margin">28. </div><div class="csl-right-inline">Freedman, D.A. (2008). Survival analysis. The American Statistician <em>62</em>, 110–119. Available at: <a href="https://doi.org/10.1198/000313008X298439 ">https://doi.org/10.1198/000313008X298439</a>.</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="14">
+<li id="fn14"><p>
+Donoho <span class="citation">[<a href="#ref-Donoho:2017aa" role="doc-biblioref">3</a>]</span> pefers the term <code>predictive modeling</code><a href="appendix.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<li id="fn15"><p>
+I am not prepared to put the blame entirely on the
+lack of preparation statistics graduates might have
+as time on the job does not seem to translate to
+different behaviours: more careful examination of the
+questions and the development of methods suited to
+the particulars of the problems. Some blame has
+to be attributed to the system in place.<a href="appendix.html#fnref15" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="predictive-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
