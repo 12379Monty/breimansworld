@@ -199,27 +199,50 @@ Exploratory Data Analysis and Data Simulation.</p>
 </blockquote>
 <p>All models are based on a set of assumptions. The conclusions one can draw
 from the results sometimes depend as much on the veracity of the
-assumptions as on the data itself. In many cases, of the assumptions
-cannot verified to be approximately true, the data should not be analyzed at all.
+assumptions as on the data itself. In many cases, if the assumptions
+cannot be verified to be approximately correct,
+the data should not be analyzed at all.
 This is a crucial topic which is not discusses in Breiman’s notes.
 It is also rarely treated to any depths in textbooks which introduce students to
 data modeling. For one thing the topic is vast and deserves its own
 course. Another reason is that it is very context specific. There
 are tools which can be generally applicable and fall under the umbrella
 term Exploratory data analysis.</p>
-<p>Originally developed by John Tukey <span class="citation">[<a href="#ref-Tukey:1972aa" role="doc-biblioref">9</a>]</span> and <span class="citation">[<a href="#ref-Tukey:1977aa" role="doc-biblioref">10</a>]</span>,
+<p>Originally developed by John Tukey <span class="citation">[<a href="#ref-Tukey:1972aa" role="doc-biblioref">10</a>]</span> and <span class="citation">[<a href="#ref-Tukey:1977aa" role="doc-biblioref">11</a>]</span>,
 exploratory data analysis refers to a set of tools and techniques which enable us
-learn the basic features of a dataset and detect anomalies and unexpected features
-before proceeding to the more formal probabilistic modeling. Many of the
+to learn and interpret both the salient and the innocuous features of a dataset
+and detect anomalies or unexpected features,
+before proceeding to the formal probabilistic modeling. Many of the
 original techniques remain in use today. The omni-present boxplot, for example,
-was first suggested by John Tukey around that time<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>.</p>
+was first suggested by John Tukey around that time<sup>[
+An interesting fact is that the idea of the boxplot first came
+to Tukey while he was interested in the patterns of residuals among many
+batches of points. I think that it’s fair to say that boxplots now are used
+almost universality to study trend in the body of the data]</sup>[
+Exploratory data analysis does not get the amount of attention it deserves
+and requires to ensure that the analysis to follow makes sense. Why is that?
+Any problem that is systematic has to be traced back to the system - the set of
+rules and priorities that regulate the game. To the analyst, finding a problem
+and fixing it means everything. That is why they are so diligent. That
+is why they carry out all of the thankless tasks that nobody else is aware of.
+What does that mean to the business driver? Nothing, for most. You found a
+problem and fixed it - what do I care, as long as I get my result by Monday.
+Professor Breiman blames statistics departments for the sloppiness in statistical
+practice. I believe employers should carry their share of the blame. If
+statisticians in the industry were rewarded for and allocated resources to
+providing inspiring, dependable and durable results, they would. If instead
+they are rewarded for functioning as a turnkey operation which provides trivial
+and superficial analysis results which enables plans to proceed as planned,
+or to architect an edifice of an analysis that is so complex nobody can
+understand, let alone test the underlying assumptions, that is exactly what
+they will keep doing.].</p>
 <p>EDA is greatly facilitated by readily available software as well as the modern
 hardware technologies which can quickly render beautiful plots. This is
 both great and not so great. It is great when it enables practitioners
 to do more EDA and let their minds wander unencumbered by technical
 challenges. It is not so great when the software does the thinking for you
 while crossing the line between EDA and SDA (statistical …), when the
-software automatically puts confidence intervals on plots for example<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a>.</p>
+software automatically puts confidence intervals on plots for example<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>.</p>
 <p>Trevor Hastie, in a talk which is further explored below
 (<a href="https://www.youtube.com/watch?v=0EWJZIC4JxA">Trevor Hastie SLBD Talk (Bristol 2018)</a>
 and accompanying
@@ -232,7 +255,7 @@ familiarising oneself with the salient features of the data may be
 harder to detect but they have not disappeared.</p>
 <p>We will not fill this chapter with descriptions of EDA summaries and plots.
 The methods are varied and many
-(See <span class="citation">[<a href="#ref-Tukey:1977aa" role="doc-biblioref">10</a>–<a href="#ref-Gelman:2006aa" role="doc-biblioref">12</a>]</span>),
+(See <span class="citation">[<a href="#ref-Tukey:1977aa" role="doc-biblioref">11</a>–<a href="#ref-Gelman:2006aa" role="doc-biblioref">13</a>]</span>),
 and their utility intimately dependent on the context.
 EDA methods will instead be introduced as
 they come up in the course of the analyses described below.</p>
@@ -303,42 +326,40 @@ can be achieved.</p>
 <p>In addition to his work on data simulations, Andrew Gelman has also
 published on the topic of <code>multilevel data</code> which may be
 analogous to the data structure of plated samples coming off the pipeline.
-See Gilman and Hill (2006) <span class="citation">[<a href="#ref-Gelman:2006aa" role="doc-biblioref">12</a>]</span>, which also has a chapter
-on simulated data <span class="citation">[<a href="#ref-Gelman:2006bb" role="doc-biblioref">13</a>]</span> and software to boot
+See Gilman and Hill (2006) <span class="citation">[<a href="#ref-Gelman:2006aa" role="doc-biblioref">13</a>]</span>, which also has a chapter
+on simulated data <span class="citation">[<a href="#ref-Gelman:2006bb" role="doc-biblioref">14</a>]</span> and software to boot
 (See <a href="https://stat.columbia.edu/~gelman/arm/">Data Analysis Using Regression and Multilevel/Hierarchical Model</a>).
-Other works of interest are Gelman, Hill and Vehtari (2020) <span class="citation">[<a href="#ref-Gelman:2020aa" role="doc-biblioref">14</a>]</span> and
+Other works of interest are Gelman, Hill and Vehtari (2020) <span class="citation">[<a href="#ref-Gelman:2020aa" role="doc-biblioref">15</a>]</span> and
 not yet published “Advanced Regression and Multilevel Models.”</p>
 
 </div>
 </div>
 <h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body">
+<div id="ref-Box:1980aa" class="csl-entry">
+<div class="csl-left-margin">9. </div><div class="csl-right-inline">Box, G.E.P. (1980). Sampling and bayes’ inference in scientific modelling and robustness. In Available at: <a href="https://api.semanticscholar.org/CorpusID:53550111">https://api.semanticscholar.org/CorpusID:53550111</a>.</div>
+</div>
 <div id="ref-Tukey:1972aa" class="csl-entry">
-<div class="csl-left-margin">9. </div><div class="csl-right-inline">Tukey, J.W. (1972). Some graphic and semigraphic displays. Statistical papers in honor of George W. Snedecor <em>5</em>, 293–316.</div>
+<div class="csl-left-margin">10. </div><div class="csl-right-inline">Tukey, J.W. (1972). Some graphic and semigraphic displays. Statistical papers in honor of George W. Snedecor <em>5</em>, 293–316.</div>
 </div>
 <div id="ref-Tukey:1977aa" class="csl-entry">
-<div class="csl-left-margin">10. </div><div class="csl-right-inline">Tukey, J.W. (1977). Exploratory data analysis (Springer).</div>
+<div class="csl-left-margin">11. </div><div class="csl-right-inline">Tukey, J.W. (1977). Exploratory data analysis (Springer).</div>
 </div>
 <div id="ref-Gelman:2006aa" class="csl-entry">
-<div class="csl-left-margin">12. </div><div class="csl-right-inline">Gelman, A., and Hill, J. (2006). Data analysis using regression and multilevel/hierarchical models (Cambridge: Cambridge University Press) Available at: <a href="https://www.cambridge.org/core/product/32A29531C7FD730C3A68951A17C9D983">https://www.cambridge.org/core/product/32A29531C7FD730C3A68951A17C9D983</a>.</div>
+<div class="csl-left-margin">13. </div><div class="csl-right-inline">Gelman, A., and Hill, J. (2006). Data analysis using regression and multilevel/hierarchical models (Cambridge: Cambridge University Press) Available at: <a href="https://www.cambridge.org/core/product/32A29531C7FD730C3A68951A17C9D983">https://www.cambridge.org/core/product/32A29531C7FD730C3A68951A17C9D983</a>.</div>
 </div>
 <div id="ref-Gelman:2006bb" class="csl-entry">
-<div class="csl-left-margin">13. </div><div class="csl-right-inline">Gelman, A., and Hill, J. eds. (2006). Simulation for checking statistical procedures and model fits. In Data analysis using regression and multilevel/hierarchical models Analytical methods for social research. (Cambridge: Cambridge University Press), pp. 155–166. Available at: <a href="https://www.cambridge.org/core/product/9546B05E0BE3DD5F20F63995F4139198">https://www.cambridge.org/core/product/9546B05E0BE3DD5F20F63995F4139198</a>.</div>
+<div class="csl-left-margin">14. </div><div class="csl-right-inline">Gelman, A., and Hill, J. eds. (2006). Simulation for checking statistical procedures and model fits. In Data analysis using regression and multilevel/hierarchical models Analytical methods for social research. (Cambridge: Cambridge University Press), pp. 155–166. Available at: <a href="https://www.cambridge.org/core/product/9546B05E0BE3DD5F20F63995F4139198">https://www.cambridge.org/core/product/9546B05E0BE3DD5F20F63995F4139198</a>.</div>
 </div>
 <div id="ref-Gelman:2020aa" class="csl-entry">
-<div class="csl-left-margin">14. </div><div class="csl-right-inline">Gelman, A., Hill, J., and Vehtari, A. (2020). Regression and other stories (Cambridge: Cambridge University Press) Available at: <a href="https://www.cambridge.org/core/product/DD20DD6C9057118581076E54E40C372C">https://www.cambridge.org/core/product/DD20DD6C9057118581076E54E40C372C</a>.</div>
+<div class="csl-left-margin">15. </div><div class="csl-right-inline">Gelman, A., Hill, J., and Vehtari, A. (2020). Regression and other stories (Cambridge: Cambridge University Press) Available at: <a href="https://www.cambridge.org/core/product/DD20DD6C9057118581076E54E40C372C">https://www.cambridge.org/core/product/DD20DD6C9057118581076E54E40C372C</a>.</div>
 </div>
 </div>
 <div class="footnotes">
 <hr />
 <ol start="8">
-<li id="fn8"><p><span class="citation">[<a href="#ref-Box:1980aa" role="doc-biblioref"><strong>Box:1980aa?</strong></a>]</span><a href="preliminaries.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p><span class="citation">[<a href="#ref-Box:1980aa" role="doc-biblioref">9</a>]</span><a href="preliminaries.html#fnref8" class="footnote-back">↩︎</a></p></li>
 <li id="fn9"><p>
-An interesting fact is that the idea of the boxplot first came
-to Tukey while he was interested in the patterns of residuals among many
-batches of points. I think that it’s fair to say that boplots now are used
-to study trend in the bodey of the data<a href="preliminaries.html#fnref9" class="footnote-back">↩︎</a></p></li>
-<li id="fn10"><p>
 S, the statistical data analysis package on which R is based, was great
 at not doing the thinking for the user. Very often, all of the elements
 needed for many specific analyses are stored in data objects and the user
@@ -347,7 +368,7 @@ These extractions sometimes require some expert knowledge, or at least you
 have to know what you’re doing. Some of the most modern and most popular
 extensions of R do most of the thinking and analysis for the user.
 Someone can now ggplot their way into a statistical conference without any
-idea what randomness is about.<a href="preliminaries.html#fnref10" class="footnote-back">↩︎</a></p></li>
+idea what randomness is about.<a href="preliminaries.html#fnref9" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
