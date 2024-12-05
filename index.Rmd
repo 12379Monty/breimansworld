@@ -1,5 +1,5 @@
 --- 
-title:  Where's the Randomness <br> Notes Adapted from Leo Breiman's <br> Applied Statistics  Class of 1991
+title:  Where's the Randomness? <br> Notes Adapted from Leo Breiman's <br> Applied Statistics  Class of 1991
 author: "Stat Student"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site

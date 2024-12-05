@@ -95,6 +95,44 @@ a set of hypotheses are clearly described.
 
 <br/>
 
+###  to p or not to p; think inside the box
+
+<p><p/>
+* When to invoke the concept of a probability value is critically important
+in any study area where data are used to make inference to a population or 
+superset from which measurements were drawn.
+point assuming things don't change over time.
+<p><p/>
+* In an engaging introductory textbook about statistics,
+Freedman et. al. (2007) [@Freedman:2007aa] introduced the idea
+of the `box model` to facilitate the understanding and
+appreciation of the sources of variability in observed data, and
+the notion of sampling variability - a model that explains how the
+variability observed in a sample set reflects both the nature of 
+the superset or population from which the data were collected,
+and the mechanism used to select the samples, which is usually "at random".
+If either of these pieces are missing, or cannot be clearly described, we
+have no notion of significance.  
+   - I other words, "are these results significantly different that what would be
+expected by chance" is not quite complete; we need a clear description if what the
+results are standing for (different from specifically what), and we need a probabilistic
+setting which can be used to compute the probabilities of observable results.
+   - The box model can be generalized to cover more elaborate contexts and should be
+used to provide the context required to make p-values interpretable.
+
+<p><p/>
+* The box model, or extension thereof, can also be used to clarify the notion
+of significance in the context of observing results, usually sample level metrics,based
+on a subsample of reads  (See Bickel et.al. 2010 [@Bickel:2010aa]).
+   - It should be clear that from the subsampling of a single fastq or bam file, one cannot
+make inference to a second fastq or bam file.  In addition, if we can measure a metric from a 
+fastq or bam file, there is no context for significance testing from a subsample of reads -
+we know the truth already!
+
+
+<br/>
+<br/>
+
 ## Statistics - inverse probability
 
 ### The data modeling approach 

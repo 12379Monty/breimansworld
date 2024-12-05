@@ -8,6 +8,7 @@ simulated-data-experimentation
 what-is-statistics
 probability---inverse-statistics
 p-values
+to-p-or-not-to-p-think-inside-the-box
 statistics---inverse-probability
 the-data-modeling-approach
 applied-statistics-at-work
