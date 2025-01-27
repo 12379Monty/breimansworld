@@ -26,3 +26,5 @@ cart---the-birth-of-a-methodology
 appendix
 breiman-versus-cox
 freedman-on-john-snow-shoe-leather-and-lines-of-evidence
+the-html-output-format-for-this-example-is-bookdowngitbook
+the-boxplot

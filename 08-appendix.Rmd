@@ -21,7 +21,7 @@ approach has led to before going on to describe an alternative to
 the classical statistical data modeling approach, `algorithmic modeling`^[
 Donoho [@Donoho:2017aa] pefers the term `predictive modeling`]. 
 
-There are two parts to Professor Breiman's criticism. 
+**There are two parts to Professor Breiman's criticism**. 
 One part of the criticism is that some modern day problems
 are just not amenable to the classical statistical approaches and
 require a shift in the conventional statistical data analysis paradigm.
@@ -34,7 +34,7 @@ to customize analysis to the specific needs of each problem.
 One of the statisticians invited to comment on Professor Breiman's
 criticism of the current state of affairs in the field of statistics was
 Sir David Cox, known for, among many other influential works,
-the Cox proportional hazards model.  We will focus on his comments as
+the **Cox proportional hazards model**.  We will focus on his comments as
 his disagreement with the notions put forth professor Breiman are
 the strongest among the commentators.
 
@@ -101,14 +101,17 @@ The answer is likely to be never, as careful consideration is rarely
 given to the suitability of the model or the quality of the data.
 
 
-> A system in which there are no checks and balances 
+<span style="color:blue">
+
+> **A system in which there are no checks and balances 
 > in place to ensure the lasting validity of results,
-> but only uncritically rewards adherance to uninfomed
+> but only uncritically rewards adherance to uninformed
 > timelines, provides little incentive for data analysis
 > professionals to incorporate careful scrutiny of assumptions 
-> or innovative solutions in their practice.
+> or innovative solutions in their practice**.
 >`r tufte::quote_footer('--- Stat Student')`
 
+</span> 
 
 <p><p/>
 
