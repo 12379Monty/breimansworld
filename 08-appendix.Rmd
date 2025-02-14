@@ -66,13 +66,13 @@ the data used to estimate the model would be hazardous,
 no matter what  modeling approach is used.
 
 <p><p/>
-* After describing an idyllic data analysis package and explaining why 
-the details of such are not published, Sir David goes on to say 
+* After describing an idyllic data analysis workflow and explaining why 
+the details of such are rarely published, Sir David goes on to assert 
 "By contrast, Professor Breiman equates mainstream applied statistics
 to a relatively mechanical process involving somehow or other
 choosing a model, often a default model of standard form, and
-applying standard methods of analysis and goodness-of-fit procedures. ...  
-It is true that many of the analyses done by non-statisticians or
+applying standard methods of analysis and goodness-of-fit procedures.
+... It is true that many of the analyses done by non-statisticians or
 by statisticians under severe time constraints are more or less like
 those Professor Breiman describes."
    - Professor Cox admits that this automated or mechanical
@@ -85,7 +85,7 @@ mainstream applied statistics in my industry^[
 I am not prepared to put the blame entirely on the
 lack of preparation statistics graduates might have
 as time on the job does not seem to translate to
-different behaviours: more careful examination of the
+improved behaviours - more careful examination of the
 questions and the development of methods suited to 
 the particulars of the problems.  Some blame has
 to be attributed to the system in place.].
